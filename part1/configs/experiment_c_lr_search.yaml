@@ -1,0 +1,32 @@
+experiment:
+  name: "exp_c_lr_search"
+  model: "mlp"
+  seeds: [42]
+
+data:
+  dataset: "fashion_mnist"
+  batch_size: 128
+  num_workers: 0
+  data_dir: "data/"
+
+training:
+  epochs: 20
+  loss: "cross_entropy"
+
+metrics:
+  loss_thresholds: [2.0, 1.0, 0.5, 0.2]
+  log_grad_norm: false
+
+lr_search:
+  sgd:
+    lr_candidates: [1.0e-3, 3.0e-3, 1.0e-2, 3.0e-2, 1.0e-1]
+    momentum: 0.9
+    weight_decay: 0.0
+  adam:
+    lr_candidates: [1.0e-4, 3.0e-4, 1.0e-3, 3.0e-3]
+    betas: [0.9, 0.999]
+    eps: 1.0e-8
+    weight_decay: 0.0
+
+output:
+  base_dir: "outputs/exp_c_lr_search"

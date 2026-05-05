@@ -1,0 +1,66 @@
+# =============================================================================
+# Python
+# =============================================================================
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.ipynb_checkpoints/
+
+# =============================================================================
+# OS / editor cruft
+# =============================================================================
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# =============================================================================
+# Large training artefacts (reproducible from training scripts)
+# =============================================================================
+# Per-epoch checkpoints (1.1 GB total)
+part2 & part3/results_part2/checkpoints/
+
+# v1 raw parameter dumps (superseded by state.pt)
+*.npy
+
+# Per-run logs
+part2 & part3/results_part2/*.log
+part2 & part3/results_part2/train_resume.log
+part2 & part3/results_part2/pipeline.log
+
+# =============================================================================
+# Datasets (public, downloaded by torchvision on first run)
+# =============================================================================
+part2 & part3/data/
+data/
+
+# =============================================================================
+# Part 1 large data + outputs (keep code, drop bulk)
+# =============================================================================
+part1/data/
+part1/outputs/
+
+# =============================================================================
+# LaTeX build products (keep .tex and final PDFs)
+# =============================================================================
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.out
+*.nav
+*.snm
+*.vrb
+
+# =============================================================================
+# Old v1 PDF (root level) — superseded by v2
+# =============================================================================
+6699_final_project_v1 (3).pdf

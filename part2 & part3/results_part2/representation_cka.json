@@ -1,0 +1,103 @@
+{
+  "config": {
+    "n_samples": 1024
+  },
+  "runs": [
+    {
+      "arch": "MLP",
+      "seed": 42,
+      "feature_kernel_alignment": 0.9685696255979211,
+      "linear_cka": 0.855273824701921,
+      "n_samples": 1024,
+      "feature_dim": 128
+    },
+    {
+      "arch": "MLP",
+      "seed": 123,
+      "feature_kernel_alignment": 0.9704503846274272,
+      "linear_cka": 0.8638282183474898,
+      "n_samples": 1024,
+      "feature_dim": 128
+    },
+    {
+      "arch": "MLP",
+      "seed": 456,
+      "feature_kernel_alignment": 0.9708752939630091,
+      "linear_cka": 0.865020438171353,
+      "n_samples": 1024,
+      "feature_dim": 128
+    },
+    {
+      "arch": "MLP",
+      "seed": 789,
+      "feature_kernel_alignment": 0.9686039454164012,
+      "linear_cka": 0.8561576078793801,
+      "n_samples": 1024,
+      "feature_dim": 128
+    },
+    {
+      "arch": "MLP",
+      "seed": 2024,
+      "feature_kernel_alignment": 0.9700927371606545,
+      "linear_cka": 0.8488905579532796,
+      "n_samples": 1024,
+      "feature_dim": 128
+    },
+    {
+      "arch": "SmallCNN",
+      "seed": 42,
+      "feature_kernel_alignment": 0.9684895097588296,
+      "linear_cka": 0.9205720500372508,
+      "n_samples": 1024,
+      "feature_dim": 128
+    },
+    {
+      "arch": "SmallCNN",
+      "seed": 123,
+      "feature_kernel_alignment": 0.9619920923085694,
+      "linear_cka": 0.8927919587413615,
+      "n_samples": 1024,
+      "feature_dim": 128
+    },
+    {
+      "arch": "SmallCNN",
+      "seed": 456,
+      "feature_kernel_alignment": 0.9662607461477546,
+      "linear_cka": 0.9231029939806141,
+      "n_samples": 1024,
+      "feature_dim": 128
+    },
+    {
+      "arch": "SmallCNN",
+      "seed": 789,
+      "feature_kernel_alignment": 0.9656106068987169,
+      "linear_cka": 0.9148841728904984,
+      "n_samples": 1024,
+      "feature_dim": 128
+    },
+    {
+      "arch": "SmallCNN",
+      "seed": 2024,
+      "feature_kernel_alignment": 0.9698193603982055,
+      "linear_cka": 0.9219558415407715,
+      "n_samples": 1024,
+      "feature_dim": 128
+    }
+  ],
+  "aggregated": {
+    "MLP": {
+      "A_mean": 0.9697183973530826,
+      "A_std": 0.0009566634823201395,
+      "CKA_mean": 0.8578341294106847,
+      "CKA_std": 0.005948537481538521,
+      "n_seeds": 5
+    },
+    "SmallCNN": {
+      "A_mean": 0.9664344631024152,
+      "A_std": 0.0026879107633182805,
+      "CKA_mean": 0.9146614034380993,
+      "CKA_std": 0.01129360225006926,
+      "n_seeds": 5
+    }
+  }
+}

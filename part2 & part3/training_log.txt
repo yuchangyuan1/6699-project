@@ -1,0 +1,636 @@
+Device: cpu
+
+
+============================================================
+  Training: MLP | SGD | seed=42
+============================================================
+  [MLP/SGD/seed=42] epoch  1  dist=4.34  gnorm=1.4510  train_acc=0.8728  test_acc=0.8537
+  [MLP/SGD/seed=42] epoch  2  dist=5.46  gnorm=1.4278  train_acc=0.8978  test_acc=0.8739
+  [MLP/SGD/seed=42] epoch  3  dist=6.35  gnorm=1.4320  train_acc=0.9079  test_acc=0.8801
+  [MLP/SGD/seed=42] epoch  4  dist=7.12  gnorm=1.4492  train_acc=0.9116  test_acc=0.8824
+  [MLP/SGD/seed=42] epoch  5  dist=7.84  gnorm=1.4587  train_acc=0.9242  test_acc=0.8883
+  [MLP/SGD/seed=42] epoch  6  dist=8.49  gnorm=1.4849  train_acc=0.9215  test_acc=0.8784
+  [MLP/SGD/seed=42] epoch  7  dist=9.10  gnorm=1.4889  train_acc=0.9289  test_acc=0.8834
+  [MLP/SGD/seed=42] epoch  8  dist=9.67  gnorm=1.4787  train_acc=0.9288  test_acc=0.8832
+  [MLP/SGD/seed=42] epoch  9  dist=10.23  gnorm=1.4994  train_acc=0.9343  test_acc=0.8825
+  [MLP/SGD/seed=42] epoch 10  dist=10.76  gnorm=1.5072  train_acc=0.9450  test_acc=0.8932
+  [MLP/SGD/seed=42] epoch 11  dist=11.28  gnorm=1.5288  train_acc=0.9489  test_acc=0.8918
+  [MLP/SGD/seed=42] epoch 12  dist=11.78  gnorm=1.5127  train_acc=0.9407  test_acc=0.8870
+  [MLP/SGD/seed=42] epoch 13  dist=12.27  gnorm=1.5238  train_acc=0.9476  test_acc=0.8839
+  [MLP/SGD/seed=42] epoch 14  dist=12.73  gnorm=1.5223  train_acc=0.9561  test_acc=0.8930
+  [MLP/SGD/seed=42] epoch 15  dist=13.18  gnorm=1.5044  train_acc=0.9630  test_acc=0.8936
+  [MLP/SGD/seed=42] epoch 16  dist=13.62  gnorm=1.5202  train_acc=0.9611  test_acc=0.8944
+  [MLP/SGD/seed=42] epoch 17  dist=14.04  gnorm=1.5210  train_acc=0.9627  test_acc=0.8920
+  [MLP/SGD/seed=42] epoch 18  dist=14.45  gnorm=1.5095  train_acc=0.9665  test_acc=0.8948
+  [MLP/SGD/seed=42] epoch 19  dist=14.84  gnorm=1.4813  train_acc=0.9624  test_acc=0.8889
+  [MLP/SGD/seed=42] epoch 20  dist=15.21  gnorm=1.4810  train_acc=0.9708  test_acc=0.8925
+  [MLP/SGD/seed=42] epoch 21  dist=15.60  gnorm=1.4978  train_acc=0.9691  test_acc=0.8891
+  [MLP/SGD/seed=42] epoch 22  dist=15.96  gnorm=1.4579  train_acc=0.9730  test_acc=0.8895
+  [MLP/SGD/seed=42] epoch 23  dist=16.32  gnorm=1.4699  train_acc=0.9730  test_acc=0.8930
+  [MLP/SGD/seed=42] epoch 24  dist=16.66  gnorm=1.4317  train_acc=0.9773  test_acc=0.8959
+  [MLP/SGD/seed=42] epoch 25  dist=16.99  gnorm=1.4320  train_acc=0.9736  test_acc=0.8898
+  [MLP/SGD/seed=42] epoch 26  dist=17.31  gnorm=1.4054  train_acc=0.9776  test_acc=0.8928
+  [MLP/SGD/seed=42] epoch 27  dist=17.62  gnorm=1.3931  train_acc=0.9758  test_acc=0.8891
+  [MLP/SGD/seed=42] epoch 28  dist=17.93  gnorm=1.4165  train_acc=0.9752  test_acc=0.8873
+  [MLP/SGD/seed=42] epoch 29  dist=18.23  gnorm=1.4167  train_acc=0.9794  test_acc=0.8903
+  [MLP/SGD/seed=42] epoch 30  dist=18.51  gnorm=1.3549  train_acc=0.9822  test_acc=0.8920
+  Computing sharpness for MLP/SGD/seed=42...
+  Computing Hessian trace for MLP/SGD/seed=42...
+  Done in 699.1s ¡ú ./results_part2\MLP_SGD_seed42.json
+
+============================================================
+  Training: MLP | SGD | seed=123
+============================================================
+  [MLP/SGD/seed=123] epoch  1  dist=4.35  gnorm=1.4473  train_acc=0.8786  test_acc=0.8612
+  [MLP/SGD/seed=123] epoch  2  dist=5.49  gnorm=1.4430  train_acc=0.8924  test_acc=0.8681
+  [MLP/SGD/seed=123] epoch  3  dist=6.36  gnorm=1.4234  train_acc=0.9066  test_acc=0.8732
+  [MLP/SGD/seed=123] epoch  4  dist=7.14  gnorm=1.4395  train_acc=0.9125  test_acc=0.8764
+  [MLP/SGD/seed=123] epoch  5  dist=7.83  gnorm=1.4515  train_acc=0.9231  test_acc=0.8843
+  [MLP/SGD/seed=123] epoch  6  dist=8.47  gnorm=1.4390  train_acc=0.9318  test_acc=0.8891
+  [MLP/SGD/seed=123] epoch  7  dist=9.07  gnorm=1.4571  train_acc=0.9292  test_acc=0.8834
+  [MLP/SGD/seed=123] epoch  8  dist=9.65  gnorm=1.4679  train_acc=0.9331  test_acc=0.8867
+  [MLP/SGD/seed=123] epoch  9  dist=10.19  gnorm=1.4774  train_acc=0.9395  test_acc=0.8890
+  [MLP/SGD/seed=123] epoch 10  dist=10.72  gnorm=1.4940  train_acc=0.9466  test_acc=0.8910
+  [MLP/SGD/seed=123] epoch 11  dist=11.23  gnorm=1.4904  train_acc=0.9438  test_acc=0.8878
+  [MLP/SGD/seed=123] epoch 12  dist=11.73  gnorm=1.5203  train_acc=0.9472  test_acc=0.8860
+  [MLP/SGD/seed=123] epoch 13  dist=12.21  gnorm=1.5241  train_acc=0.9444  test_acc=0.8813
+  [MLP/SGD/seed=123] epoch 14  dist=12.68  gnorm=1.5228  train_acc=0.9517  test_acc=0.8852
+  [MLP/SGD/seed=123] epoch 15  dist=13.13  gnorm=1.5046  train_acc=0.9584  test_acc=0.8923
+  [MLP/SGD/seed=123] epoch 16  dist=13.56  gnorm=1.5020  train_acc=0.9560  test_acc=0.8847
+  [MLP/SGD/seed=123] epoch 17  dist=13.98  gnorm=1.5239  train_acc=0.9569  test_acc=0.8871
+  [MLP/SGD/seed=123] epoch 18  dist=14.39  gnorm=1.4975  train_acc=0.9613  test_acc=0.8879
+  [MLP/SGD/seed=123] epoch 19  dist=14.78  gnorm=1.4789  train_acc=0.9606  test_acc=0.8868
+  [MLP/SGD/seed=123] epoch 20  dist=15.17  gnorm=1.5170  train_acc=0.9672  test_acc=0.8902
+  [MLP/SGD/seed=123] epoch 21  dist=15.54  gnorm=1.4789  train_acc=0.9746  test_acc=0.8908
+  [MLP/SGD/seed=123] epoch 22  dist=15.89  gnorm=1.4592  train_acc=0.9750  test_acc=0.8953
+  [MLP/SGD/seed=123] epoch 23  dist=16.25  gnorm=1.4571  train_acc=0.9694  test_acc=0.8892
+  [MLP/SGD/seed=123] epoch 24  dist=16.59  gnorm=1.4595  train_acc=0.9800  test_acc=0.8936
+  [MLP/SGD/seed=123] epoch 25  dist=16.92  gnorm=1.4481  train_acc=0.9765  test_acc=0.8893
+  [MLP/SGD/seed=123] epoch 26  dist=17.25  gnorm=1.4488  train_acc=0.9776  test_acc=0.8870
+  [MLP/SGD/seed=123] epoch 27  dist=17.55  gnorm=1.4107  train_acc=0.9766  test_acc=0.8929
+  [MLP/SGD/seed=123] epoch 28  dist=17.86  gnorm=1.4013  train_acc=0.9810  test_acc=0.8944
+  [MLP/SGD/seed=123] epoch 29  dist=18.16  gnorm=1.3872  train_acc=0.9838  test_acc=0.8944
+  [MLP/SGD/seed=123] epoch 30  dist=18.44  gnorm=1.3637  train_acc=0.9731  test_acc=0.8854
+  Computing sharpness for MLP/SGD/seed=123...
+  Computing Hessian trace for MLP/SGD/seed=123...
+  Done in 566.1s ¡ú ./results_part2\MLP_SGD_seed123.json
+
+============================================================
+  Training: MLP | SGD | seed=456
+============================================================
+  [MLP/SGD/seed=456] epoch  1  dist=4.32  gnorm=1.4550  train_acc=0.8772  test_acc=0.8590
+  [MLP/SGD/seed=456] epoch  2  dist=5.44  gnorm=1.4255  train_acc=0.8971  test_acc=0.8715
+  [MLP/SGD/seed=456] epoch  3  dist=6.34  gnorm=1.4188  train_acc=0.9092  test_acc=0.8845
+  [MLP/SGD/seed=456] epoch  4  dist=7.10  gnorm=1.4269  train_acc=0.9090  test_acc=0.8727
+  [MLP/SGD/seed=456] epoch  5  dist=7.81  gnorm=1.4279  train_acc=0.9232  test_acc=0.8860
+  [MLP/SGD/seed=456] epoch  6  dist=8.45  gnorm=1.4641  train_acc=0.9204  test_acc=0.8747
+  [MLP/SGD/seed=456] epoch  7  dist=9.06  gnorm=1.4709  train_acc=0.9306  test_acc=0.8864
+  [MLP/SGD/seed=456] epoch  8  dist=9.64  gnorm=1.4826  train_acc=0.9317  test_acc=0.8819
+  [MLP/SGD/seed=456] epoch  9  dist=10.21  gnorm=1.4910  train_acc=0.9380  test_acc=0.8844
+  [MLP/SGD/seed=456] epoch 10  dist=10.75  gnorm=1.5064  train_acc=0.9379  test_acc=0.8812
+  [MLP/SGD/seed=456] epoch 11  dist=11.27  gnorm=1.5030  train_acc=0.9456  test_acc=0.8865
+  [MLP/SGD/seed=456] epoch 12  dist=11.77  gnorm=1.5083  train_acc=0.9543  test_acc=0.8932
+  [MLP/SGD/seed=456] epoch 13  dist=12.24  gnorm=1.4978  train_acc=0.9505  test_acc=0.8877
+  [MLP/SGD/seed=456] epoch 14  dist=12.70  gnorm=1.5146  train_acc=0.9595  test_acc=0.8899
+  [MLP/SGD/seed=456] epoch 15  dist=13.15  gnorm=1.5126  train_acc=0.9595  test_acc=0.8890
+  [MLP/SGD/seed=456] epoch 16  dist=13.58  gnorm=1.5039  train_acc=0.9614  test_acc=0.8879
+  [MLP/SGD/seed=456] epoch 17  dist=14.01  gnorm=1.4860  train_acc=0.9620  test_acc=0.8896
+  [MLP/SGD/seed=456] epoch 18  dist=14.44  gnorm=1.5450  train_acc=0.9572  test_acc=0.8882
+  [MLP/SGD/seed=456] epoch 19  dist=14.82  gnorm=1.4794  train_acc=0.9671  test_acc=0.8898
+  [MLP/SGD/seed=456] epoch 20  dist=15.21  gnorm=1.4970  train_acc=0.9705  test_acc=0.8891
+  [MLP/SGD/seed=456] epoch 21  dist=15.58  gnorm=1.4734  train_acc=0.9749  test_acc=0.8896
+  [MLP/SGD/seed=456] epoch 22  dist=15.94  gnorm=1.4646  train_acc=0.9715  test_acc=0.8949
+  [MLP/SGD/seed=456] epoch 23  dist=16.30  gnorm=1.4711  train_acc=0.9703  test_acc=0.8921
+  [MLP/SGD/seed=456] epoch 24  dist=16.65  gnorm=1.4714  train_acc=0.9757  test_acc=0.8939
+  [MLP/SGD/seed=456] epoch 25  dist=16.98  gnorm=1.4388  train_acc=0.9764  test_acc=0.8941
+  [MLP/SGD/seed=456] epoch 26  dist=17.29  gnorm=1.3952  train_acc=0.9760  test_acc=0.8907
+  [MLP/SGD/seed=456] epoch 27  dist=17.60  gnorm=1.3995  train_acc=0.9813  test_acc=0.8923
+  [MLP/SGD/seed=456] epoch 28  dist=17.90  gnorm=1.4021  train_acc=0.9818  test_acc=0.8906
+  [MLP/SGD/seed=456] epoch 29  dist=18.19  gnorm=1.3720  train_acc=0.9802  test_acc=0.8901
+  [MLP/SGD/seed=456] epoch 30  dist=18.47  gnorm=1.3320  train_acc=0.9795  test_acc=0.8904
+  Computing sharpness for MLP/SGD/seed=456...
+  Computing Hessian trace for MLP/SGD/seed=456...
+  Done in 814.3s ¡ú ./results_part2\MLP_SGD_seed456.json
+
+============================================================
+  Training: MLP | SGD | seed=789
+============================================================
+  [MLP/SGD/seed=789] epoch  1  dist=4.35  gnorm=1.4498  train_acc=0.8774  test_acc=0.8585
+  [MLP/SGD/seed=789] epoch  2  dist=5.46  gnorm=1.4231  train_acc=0.8894  test_acc=0.8668
+  [MLP/SGD/seed=789] epoch  3  dist=6.35  gnorm=1.4238  train_acc=0.9032  test_acc=0.8742
+  [MLP/SGD/seed=789] epoch  4  dist=7.12  gnorm=1.4182  train_acc=0.9082  test_acc=0.8741
+  [MLP/SGD/seed=789] epoch  5  dist=7.81  gnorm=1.4441  train_acc=0.9243  test_acc=0.8872
+  [MLP/SGD/seed=789] epoch  6  dist=8.46  gnorm=1.4502  train_acc=0.9172  test_acc=0.8757
+  [MLP/SGD/seed=789] epoch  7  dist=9.06  gnorm=1.4737  train_acc=0.9336  test_acc=0.8905
+  [MLP/SGD/seed=789] epoch  8  dist=9.64  gnorm=1.4866  train_acc=0.9357  test_acc=0.8911
+  [MLP/SGD/seed=789] epoch  9  dist=10.19  gnorm=1.4734  train_acc=0.9345  test_acc=0.8831
+  [MLP/SGD/seed=789] epoch 10  dist=10.72  gnorm=1.4882  train_acc=0.9438  test_acc=0.8883
+  [MLP/SGD/seed=789] epoch 11  dist=11.23  gnorm=1.5002  train_acc=0.9485  test_acc=0.8902
+  [MLP/SGD/seed=789] epoch 12  dist=11.74  gnorm=1.5394  train_acc=0.9525  test_acc=0.8899
+  [MLP/SGD/seed=789] epoch 13  dist=12.23  gnorm=1.5178  train_acc=0.9570  test_acc=0.8885
+  [MLP/SGD/seed=789] epoch 14  dist=12.69  gnorm=1.5057  train_acc=0.9546  test_acc=0.8907
+  [MLP/SGD/seed=789] epoch 15  dist=13.15  gnorm=1.5415  train_acc=0.9534  test_acc=0.8832
+  [MLP/SGD/seed=789] epoch 16  dist=13.59  gnorm=1.5379  train_acc=0.9481  test_acc=0.8869
+  [MLP/SGD/seed=789] epoch 17  dist=14.01  gnorm=1.5167  train_acc=0.9684  test_acc=0.8945
+  [MLP/SGD/seed=789] epoch 18  dist=14.42  gnorm=1.4818  train_acc=0.9632  test_acc=0.8884
+  [MLP/SGD/seed=789] epoch 19  dist=14.81  gnorm=1.4914  train_acc=0.9683  test_acc=0.8929
+  [MLP/SGD/seed=789] epoch 20  dist=15.20  gnorm=1.5009  train_acc=0.9642  test_acc=0.8880
+  [MLP/SGD/seed=789] epoch 21  dist=15.57  gnorm=1.4790  train_acc=0.9735  test_acc=0.8923
+  [MLP/SGD/seed=789] epoch 22  dist=15.94  gnorm=1.4492  train_acc=0.9754  test_acc=0.8978
+  [MLP/SGD/seed=789] epoch 23  dist=16.28  gnorm=1.4472  train_acc=0.9748  test_acc=0.8936
+  [MLP/SGD/seed=789] epoch 24  dist=16.62  gnorm=1.4441  train_acc=0.9762  test_acc=0.8935
+  [MLP/SGD/seed=789] epoch 25  dist=16.96  gnorm=1.4472  train_acc=0.9806  test_acc=0.8928
+  [MLP/SGD/seed=789] epoch 26  dist=17.28  gnorm=1.4349  train_acc=0.9680  test_acc=0.8874
+  [MLP/SGD/seed=789] epoch 27  dist=17.59  gnorm=1.4011  train_acc=0.9796  test_acc=0.8934
+  [MLP/SGD/seed=789] epoch 28  dist=17.90  gnorm=1.3892  train_acc=0.9772  test_acc=0.8879
+  [MLP/SGD/seed=789] epoch 29  dist=18.19  gnorm=1.3857  train_acc=0.9780  test_acc=0.8904
+  [MLP/SGD/seed=789] epoch 30  dist=18.48  gnorm=1.3655  train_acc=0.9857  test_acc=0.8951
+  Computing sharpness for MLP/SGD/seed=789...
+  Computing Hessian trace for MLP/SGD/seed=789...
+  Done in 1093.7s ¡ú ./results_part2\MLP_SGD_seed789.json
+
+============================================================
+  Training: MLP | SGD | seed=2024
+============================================================
+  [MLP/SGD/seed=2024] epoch  1  dist=4.33  gnorm=1.4534  train_acc=0.8749  test_acc=0.8553
+  [MLP/SGD/seed=2024] epoch  2  dist=5.46  gnorm=1.4476  train_acc=0.8911  test_acc=0.8663
+  [MLP/SGD/seed=2024] epoch  3  dist=6.36  gnorm=1.4394  train_acc=0.9044  test_acc=0.8784
+  [MLP/SGD/seed=2024] epoch  4  dist=7.13  gnorm=1.4337  train_acc=0.9085  test_acc=0.8757
+  [MLP/SGD/seed=2024] epoch  5  dist=7.82  gnorm=1.4401  train_acc=0.9165  test_acc=0.8800
+  [MLP/SGD/seed=2024] epoch  6  dist=8.47  gnorm=1.4566  train_acc=0.9266  test_acc=0.8865
+  [MLP/SGD/seed=2024] epoch  7  dist=9.09  gnorm=1.4646  train_acc=0.9240  test_acc=0.8795
+  [MLP/SGD/seed=2024] epoch  8  dist=9.67  gnorm=1.4767  train_acc=0.9352  test_acc=0.8859
+  [MLP/SGD/seed=2024] epoch  9  dist=10.23  gnorm=1.4846  train_acc=0.9335  test_acc=0.8811
+  [MLP/SGD/seed=2024] epoch 10  dist=10.77  gnorm=1.4871  train_acc=0.9460  test_acc=0.8905
+  [MLP/SGD/seed=2024] epoch 11  dist=11.28  gnorm=1.5030  train_acc=0.9507  test_acc=0.8926
+  [MLP/SGD/seed=2024] epoch 12  dist=11.78  gnorm=1.5185  train_acc=0.9499  test_acc=0.8894
+  [MLP/SGD/seed=2024] epoch 13  dist=12.27  gnorm=1.5175  train_acc=0.9515  test_acc=0.8881
+  [MLP/SGD/seed=2024] epoch 14  dist=12.75  gnorm=1.5026  train_acc=0.9500  test_acc=0.8869
+  [MLP/SGD/seed=2024] epoch 15  dist=13.20  gnorm=1.5186  train_acc=0.9580  test_acc=0.8878
+  [MLP/SGD/seed=2024] epoch 16  dist=13.64  gnorm=1.5162  train_acc=0.9598  test_acc=0.8884
+  [MLP/SGD/seed=2024] epoch 17  dist=14.07  gnorm=1.4983  train_acc=0.9596  test_acc=0.8886
+  [MLP/SGD/seed=2024] epoch 18  dist=14.47  gnorm=1.4848  train_acc=0.9683  test_acc=0.8955
+  [MLP/SGD/seed=2024] epoch 19  dist=14.87  gnorm=1.4969  train_acc=0.9650  test_acc=0.8872
+  [MLP/SGD/seed=2024] epoch 20  dist=15.25  gnorm=1.4757  train_acc=0.9625  test_acc=0.8885
+  [MLP/SGD/seed=2024] epoch 21  dist=15.62  gnorm=1.4635  train_acc=0.9743  test_acc=0.8914
+  [MLP/SGD/seed=2024] epoch 22  dist=15.98  gnorm=1.4599  train_acc=0.9716  test_acc=0.8937
+  [MLP/SGD/seed=2024] epoch 23  dist=16.32  gnorm=1.4545  train_acc=0.9682  test_acc=0.8838
+  [MLP/SGD/seed=2024] epoch 24  dist=16.66  gnorm=1.4608  train_acc=0.9738  test_acc=0.8860
+  [MLP/SGD/seed=2024] epoch 25  dist=16.99  gnorm=1.4319  train_acc=0.9796  test_acc=0.8915
+  [MLP/SGD/seed=2024] epoch 26  dist=17.31  gnorm=1.4331  train_acc=0.9808  test_acc=0.8927
+  [MLP/SGD/seed=2024] epoch 27  dist=17.62  gnorm=1.4117  train_acc=0.9803  test_acc=0.8934
+  [MLP/SGD/seed=2024] epoch 28  dist=17.92  gnorm=1.4034  train_acc=0.9801  test_acc=0.8878
+  [MLP/SGD/seed=2024] epoch 29  dist=18.22  gnorm=1.4232  train_acc=0.9765  test_acc=0.8916
+  [MLP/SGD/seed=2024] epoch 30  dist=18.51  gnorm=1.3701  train_acc=0.9812  test_acc=0.8859
+  Computing sharpness for MLP/SGD/seed=2024...
+  Computing Hessian trace for MLP/SGD/seed=2024...
+  Done in 1090.0s ¡ú ./results_part2\MLP_SGD_seed2024.json
+
+============================================================
+  Training: MLP | Adam | seed=42
+============================================================
+  [MLP/Adam/seed=42] epoch  1  dist=10.01  gnorm=0.9074  train_acc=0.8745  test_acc=0.8556
+  [MLP/Adam/seed=42] epoch  2  dist=13.92  gnorm=0.7937  train_acc=0.8988  test_acc=0.8755
+  [MLP/Adam/seed=42] epoch  3  dist=17.03  gnorm=0.7471  train_acc=0.9086  test_acc=0.8779
+  [MLP/Adam/seed=42] epoch  4  dist=19.87  gnorm=0.7242  train_acc=0.9134  test_acc=0.8837
+  [MLP/Adam/seed=42] epoch  5  dist=22.45  gnorm=0.7151  train_acc=0.9254  test_acc=0.8886
+  [MLP/Adam/seed=42] epoch  6  dist=24.87  gnorm=0.7067  train_acc=0.9249  test_acc=0.8835
+  [MLP/Adam/seed=42] epoch  7  dist=27.18  gnorm=0.7027  train_acc=0.9329  test_acc=0.8886
+  [MLP/Adam/seed=42] epoch  8  dist=29.41  gnorm=0.6910  train_acc=0.9292  test_acc=0.8853
+  [MLP/Adam/seed=42] epoch  9  dist=31.46  gnorm=0.6899  train_acc=0.9325  test_acc=0.8774
+  [MLP/Adam/seed=42] epoch 10  dist=33.42  gnorm=0.6863  train_acc=0.9469  test_acc=0.8931
+  [MLP/Adam/seed=42] epoch 11  dist=35.28  gnorm=0.6780  train_acc=0.9462  test_acc=0.8905
+  [MLP/Adam/seed=42] epoch 12  dist=37.07  gnorm=0.6804  train_acc=0.9484  test_acc=0.8917
+  [MLP/Adam/seed=42] epoch 13  dist=38.81  gnorm=0.6698  train_acc=0.9532  test_acc=0.8878
+  [MLP/Adam/seed=42] epoch 14  dist=40.54  gnorm=0.6724  train_acc=0.9526  test_acc=0.8905
+  [MLP/Adam/seed=42] epoch 15  dist=42.11  gnorm=0.6578  train_acc=0.9658  test_acc=0.8945
+  [MLP/Adam/seed=42] epoch 16  dist=43.63  gnorm=0.6576  train_acc=0.9657  test_acc=0.8947
+  [MLP/Adam/seed=42] epoch 17  dist=45.13  gnorm=0.6645  train_acc=0.9652  test_acc=0.8901
+  [MLP/Adam/seed=42] epoch 18  dist=46.58  gnorm=0.6487  train_acc=0.9692  test_acc=0.8959
+  [MLP/Adam/seed=42] epoch 19  dist=47.91  gnorm=0.6321  train_acc=0.9684  test_acc=0.8966
+  [MLP/Adam/seed=42] epoch 20  dist=49.37  gnorm=0.6477  train_acc=0.9746  test_acc=0.8940
+  [MLP/Adam/seed=42] epoch 21  dist=50.64  gnorm=0.6269  train_acc=0.9727  test_acc=0.8947
+  [MLP/Adam/seed=42] epoch 22  dist=51.92  gnorm=0.6309  train_acc=0.9741  test_acc=0.8927
+  [MLP/Adam/seed=42] epoch 23  dist=53.14  gnorm=0.6251  train_acc=0.9767  test_acc=0.8960
+  [MLP/Adam/seed=42] epoch 24  dist=54.31  gnorm=0.6004  train_acc=0.9816  test_acc=0.8969
+  [MLP/Adam/seed=42] epoch 25  dist=55.61  gnorm=0.6363  train_acc=0.9744  test_acc=0.8940
+  [MLP/Adam/seed=42] epoch 26  dist=56.64  gnorm=0.5979  train_acc=0.9746  test_acc=0.8912
+  [MLP/Adam/seed=42] epoch 27  dist=57.77  gnorm=0.5942  train_acc=0.9773  test_acc=0.8923
+  [MLP/Adam/seed=42] epoch 28  dist=58.90  gnorm=0.5924  train_acc=0.9808  test_acc=0.8941
+  [MLP/Adam/seed=42] epoch 29  dist=60.09  gnorm=0.5996  train_acc=0.9856  test_acc=0.8974
+  [MLP/Adam/seed=42] epoch 30  dist=61.21  gnorm=0.5780  train_acc=0.9842  test_acc=0.8935
+  Computing sharpness for MLP/Adam/seed=42...
+  Computing Hessian trace for MLP/Adam/seed=42...
+  Done in 1094.7s ¡ú ./results_part2\MLP_Adam_seed42.json
+
+============================================================
+  Training: MLP | Adam | seed=123
+============================================================
+  [MLP/Adam/seed=123] epoch  1  dist=10.08  gnorm=0.9012  train_acc=0.8714  test_acc=0.8559
+  [MLP/Adam/seed=123] epoch  2  dist=13.92  gnorm=0.7932  train_acc=0.8947  test_acc=0.8715
+  [MLP/Adam/seed=123] epoch  3  dist=17.04  gnorm=0.7465  train_acc=0.9071  test_acc=0.8764
+  [MLP/Adam/seed=123] epoch  4  dist=19.81  gnorm=0.7233  train_acc=0.9117  test_acc=0.8780
+  [MLP/Adam/seed=123] epoch  5  dist=22.43  gnorm=0.7140  train_acc=0.9231  test_acc=0.8861
+  [MLP/Adam/seed=123] epoch  6  dist=24.86  gnorm=0.7042  train_acc=0.9302  test_acc=0.8877
+  [MLP/Adam/seed=123] epoch  7  dist=27.23  gnorm=0.6976  train_acc=0.9325  test_acc=0.8852
+  [MLP/Adam/seed=123] epoch  8  dist=29.39  gnorm=0.6874  train_acc=0.9357  test_acc=0.8901
+  [MLP/Adam/seed=123] epoch  9  dist=31.41  gnorm=0.6924  train_acc=0.9405  test_acc=0.8923
+  [MLP/Adam/seed=123] epoch 10  dist=33.42  gnorm=0.6941  train_acc=0.9479  test_acc=0.8932
+  [MLP/Adam/seed=123] epoch 11  dist=35.21  gnorm=0.6677  train_acc=0.9485  test_acc=0.8889
+  [MLP/Adam/seed=123] epoch 12  dist=37.08  gnorm=0.6896  train_acc=0.9554  test_acc=0.8961
+  [MLP/Adam/seed=123] epoch 13  dist=38.82  gnorm=0.6710  train_acc=0.9458  test_acc=0.8840
+  [MLP/Adam/seed=123] epoch 14  dist=40.47  gnorm=0.6696  train_acc=0.9540  test_acc=0.8892
+  [MLP/Adam/seed=123] epoch 15  dist=42.03  gnorm=0.6581  train_acc=0.9653  test_acc=0.8969
+  [MLP/Adam/seed=123] epoch 16  dist=43.62  gnorm=0.6631  train_acc=0.9589  test_acc=0.8873
+  [MLP/Adam/seed=123] epoch 17  dist=45.11  gnorm=0.6537  train_acc=0.9615  test_acc=0.8865
+  [MLP/Adam/seed=123] epoch 18  dist=46.58  gnorm=0.6547  train_acc=0.9663  test_acc=0.8931
+  [MLP/Adam/seed=123] epoch 19  dist=47.87  gnorm=0.6293  train_acc=0.9686  test_acc=0.8940
+  [MLP/Adam/seed=123] epoch 20  dist=49.40  gnorm=0.6653  train_acc=0.9717  test_acc=0.8917
+  [MLP/Adam/seed=123] epoch 21  dist=50.67  gnorm=0.6399  train_acc=0.9757  test_acc=0.8958
+  [MLP/Adam/seed=123] epoch 22  dist=51.99  gnorm=0.6219  train_acc=0.9781  test_acc=0.8990
+  [MLP/Adam/seed=123] epoch 23  dist=53.23  gnorm=0.6358  train_acc=0.9771  test_acc=0.8949
+  [MLP/Adam/seed=123] epoch 24  dist=54.42  gnorm=0.6142  train_acc=0.9803  test_acc=0.8972
+  [MLP/Adam/seed=123] epoch 25  dist=55.61  gnorm=0.6204  train_acc=0.9782  test_acc=0.8942
+  [MLP/Adam/seed=123] epoch 26  dist=56.85  gnorm=0.6258  train_acc=0.9822  test_acc=0.8920
+  [MLP/Adam/seed=123] epoch 27  dist=58.01  gnorm=0.5966  train_acc=0.9814  test_acc=0.8972
+  [MLP/Adam/seed=123] epoch 28  dist=59.03  gnorm=0.5776  train_acc=0.9831  test_acc=0.8909
+  [MLP/Adam/seed=123] epoch 29  dist=60.09  gnorm=0.5722  train_acc=0.9773  test_acc=0.8947
+  [MLP/Adam/seed=123] epoch 30  dist=61.23  gnorm=0.5865  train_acc=0.9791  test_acc=0.8900
+  Computing sharpness for MLP/Adam/seed=123...
+  Computing Hessian trace for MLP/Adam/seed=123...
+  Done in 1099.6s ¡ú ./results_part2\MLP_Adam_seed123.json
+
+============================================================
+  Training: MLP | Adam | seed=456
+============================================================
+  [MLP/Adam/seed=456] epoch  1  dist=9.89  gnorm=0.9185  train_acc=0.8795  test_acc=0.8602
+  [MLP/Adam/seed=456] epoch  2  dist=13.71  gnorm=0.7837  train_acc=0.9006  test_acc=0.8770
+  [MLP/Adam/seed=456] epoch  3  dist=16.96  gnorm=0.7450  train_acc=0.9128  test_acc=0.8861
+  [MLP/Adam/seed=456] epoch  4  dist=19.75  gnorm=0.7219  train_acc=0.9055  test_acc=0.8751
+  [MLP/Adam/seed=456] epoch  5  dist=22.35  gnorm=0.7047  train_acc=0.9226  test_acc=0.8877
+  [MLP/Adam/seed=456] epoch  6  dist=24.82  gnorm=0.7043  train_acc=0.9162  test_acc=0.8736
+  [MLP/Adam/seed=456] epoch  7  dist=27.11  gnorm=0.7008  train_acc=0.9335  test_acc=0.8878
+  [MLP/Adam/seed=456] epoch  8  dist=29.22  gnorm=0.6865  train_acc=0.9362  test_acc=0.8885
+  [MLP/Adam/seed=456] epoch  9  dist=31.31  gnorm=0.6826  train_acc=0.9357  test_acc=0.8868
+  [MLP/Adam/seed=456] epoch 10  dist=33.38  gnorm=0.6913  train_acc=0.9400  test_acc=0.8844
+  [MLP/Adam/seed=456] epoch 11  dist=35.34  gnorm=0.6781  train_acc=0.9489  test_acc=0.8929
+  [MLP/Adam/seed=456] epoch 12  dist=37.13  gnorm=0.6762  train_acc=0.9547  test_acc=0.8926
+  [MLP/Adam/seed=456] epoch 13  dist=38.81  gnorm=0.6626  train_acc=0.9516  test_acc=0.8893
+  [MLP/Adam/seed=456] epoch 14  dist=40.53  gnorm=0.6732  train_acc=0.9635  test_acc=0.8959
+  [MLP/Adam/seed=456] epoch 15  dist=42.11  gnorm=0.6587  train_acc=0.9655  test_acc=0.8920
+  [MLP/Adam/seed=456] epoch 16  dist=43.57  gnorm=0.6517  train_acc=0.9646  test_acc=0.8892
+  [MLP/Adam/seed=456] epoch 17  dist=45.02  gnorm=0.6348  train_acc=0.9581  test_acc=0.8849
+  [MLP/Adam/seed=456] epoch 18  dist=46.61  gnorm=0.6694  train_acc=0.9610  test_acc=0.8886
+  [MLP/Adam/seed=456] epoch 19  dist=48.01  gnorm=0.6436  train_acc=0.9758  test_acc=0.8955
+  [MLP/Adam/seed=456] epoch 20  dist=49.36  gnorm=0.6424  train_acc=0.9694  test_acc=0.8894
+  [MLP/Adam/seed=456] epoch 21  dist=50.72  gnorm=0.6448  train_acc=0.9773  test_acc=0.8931
+  [MLP/Adam/seed=456] epoch 22  dist=52.01  gnorm=0.6172  train_acc=0.9721  test_acc=0.8915
+  [MLP/Adam/seed=456] epoch 23  dist=53.25  gnorm=0.6245  train_acc=0.9742  test_acc=0.8903
+  [MLP/Adam/seed=456] epoch 24  dist=54.46  gnorm=0.6158  train_acc=0.9779  test_acc=0.8938
+  [MLP/Adam/seed=456] epoch 25  dist=55.65  gnorm=0.6084  train_acc=0.9760  test_acc=0.8924
+  [MLP/Adam/seed=456] epoch 26  dist=56.81  gnorm=0.6064  train_acc=0.9724  test_acc=0.8907
+  [MLP/Adam/seed=456] epoch 27  dist=58.04  gnorm=0.5923  train_acc=0.9830  test_acc=0.8901
+  [MLP/Adam/seed=456] epoch 28  dist=59.16  gnorm=0.6046  train_acc=0.9853  test_acc=0.8884
+  [MLP/Adam/seed=456] epoch 29  dist=60.22  gnorm=0.5755  train_acc=0.9819  test_acc=0.8909
+  [MLP/Adam/seed=456] epoch 30  dist=61.25  gnorm=0.5777  train_acc=0.9869  test_acc=0.8921
+  Computing sharpness for MLP/Adam/seed=456...
+  Computing Hessian trace for MLP/Adam/seed=456...
+  Done in 1094.5s ¡ú ./results_part2\MLP_Adam_seed456.json
+
+============================================================
+  Training: MLP | Adam | seed=789
+============================================================
+  [MLP/Adam/seed=789] epoch  1  dist=10.04  gnorm=0.9000  train_acc=0.8804  test_acc=0.8596
+  [MLP/Adam/seed=789] epoch  2  dist=13.95  gnorm=0.7843  train_acc=0.8909  test_acc=0.8696
+  [MLP/Adam/seed=789] epoch  3  dist=17.10  gnorm=0.7443  train_acc=0.9042  test_acc=0.8786
+  [MLP/Adam/seed=789] epoch  4  dist=19.96  gnorm=0.7184  train_acc=0.9103  test_acc=0.8796
+  [MLP/Adam/seed=789] epoch  5  dist=22.56  gnorm=0.7037  train_acc=0.9213  test_acc=0.8862
+  [MLP/Adam/seed=789] epoch  6  dist=25.02  gnorm=0.6986  train_acc=0.9220  test_acc=0.8808
+  [MLP/Adam/seed=789] epoch  7  dist=27.22  gnorm=0.6844  train_acc=0.9342  test_acc=0.8914
+  [MLP/Adam/seed=789] epoch  8  dist=29.40  gnorm=0.6875  train_acc=0.9394  test_acc=0.8921
+  [MLP/Adam/seed=789] epoch  9  dist=31.43  gnorm=0.6825  train_acc=0.9371  test_acc=0.8875
+  [MLP/Adam/seed=789] epoch 10  dist=33.31  gnorm=0.6663  train_acc=0.9474  test_acc=0.8923
+  [MLP/Adam/seed=789] epoch 11  dist=35.27  gnorm=0.6769  train_acc=0.9500  test_acc=0.8932
+  [MLP/Adam/seed=789] epoch 12  dist=37.08  gnorm=0.6741  train_acc=0.9580  test_acc=0.8956
+  [MLP/Adam/seed=789] epoch 13  dist=38.78  gnorm=0.6632  train_acc=0.9575  test_acc=0.8922
+  [MLP/Adam/seed=789] epoch 14  dist=40.45  gnorm=0.6658  train_acc=0.9534  test_acc=0.8882
+  [MLP/Adam/seed=789] epoch 15  dist=42.03  gnorm=0.6617  train_acc=0.9566  test_acc=0.8856
+  [MLP/Adam/seed=789] epoch 16  dist=43.65  gnorm=0.6653  train_acc=0.9556  test_acc=0.8888
+  [MLP/Adam/seed=789] epoch 17  dist=45.20  gnorm=0.6604  train_acc=0.9695  test_acc=0.8960
+  [MLP/Adam/seed=789] epoch 18  dist=46.64  gnorm=0.6428  train_acc=0.9578  test_acc=0.8873
+  [MLP/Adam/seed=789] epoch 19  dist=48.05  gnorm=0.6397  train_acc=0.9732  test_acc=0.8974
+  [MLP/Adam/seed=789] epoch 20  dist=49.50  gnorm=0.6581  train_acc=0.9642  test_acc=0.8904
+  [MLP/Adam/seed=789] epoch 21  dist=50.76  gnorm=0.6296  train_acc=0.9765  test_acc=0.8974
+  [MLP/Adam/seed=789] epoch 22  dist=51.99  gnorm=0.6136  train_acc=0.9755  test_acc=0.8947
+  [MLP/Adam/seed=789] epoch 23  dist=53.24  gnorm=0.6241  train_acc=0.9756  test_acc=0.8935
+  [MLP/Adam/seed=789] epoch 24  dist=54.56  gnorm=0.6306  train_acc=0.9741  test_acc=0.8953
+  [MLP/Adam/seed=789] epoch 25  dist=55.75  gnorm=0.6301  train_acc=0.9831  test_acc=0.8962
+  [MLP/Adam/seed=789] epoch 26  dist=56.82  gnorm=0.5937  train_acc=0.9785  test_acc=0.8958
+  [MLP/Adam/seed=789] epoch 27  dist=57.93  gnorm=0.5946  train_acc=0.9828  test_acc=0.8922
+  [MLP/Adam/seed=789] epoch 28  dist=59.02  gnorm=0.5870  train_acc=0.9785  test_acc=0.8950
+  [MLP/Adam/seed=789] epoch 29  dist=60.13  gnorm=0.5716  train_acc=0.9833  test_acc=0.8968
+  [MLP/Adam/seed=789] epoch 30  dist=61.20  gnorm=0.5808  train_acc=0.9843  test_acc=0.8981
+  Computing sharpness for MLP/Adam/seed=789...
+  Computing Hessian trace for MLP/Adam/seed=789...
+  Done in 1115.3s ¡ú ./results_part2\MLP_Adam_seed789.json
+
+============================================================
+  Training: MLP | Adam | seed=2024
+============================================================
+  [MLP/Adam/seed=2024] epoch  1  dist=10.11  gnorm=0.8968  train_acc=0.8746  test_acc=0.8544
+  [MLP/Adam/seed=2024] epoch  2  dist=13.97  gnorm=0.7890  train_acc=0.8954  test_acc=0.8721
+  [MLP/Adam/seed=2024] epoch  3  dist=17.15  gnorm=0.7490  train_acc=0.9041  test_acc=0.8749
+  [MLP/Adam/seed=2024] epoch  4  dist=20.02  gnorm=0.7262  train_acc=0.9131  test_acc=0.8824
+  [MLP/Adam/seed=2024] epoch  5  dist=22.63  gnorm=0.7100  train_acc=0.9186  test_acc=0.8840
+  [MLP/Adam/seed=2024] epoch  6  dist=25.11  gnorm=0.7024  train_acc=0.9278  test_acc=0.8923
+  [MLP/Adam/seed=2024] epoch  7  dist=27.33  gnorm=0.6933  train_acc=0.9298  test_acc=0.8881
+  [MLP/Adam/seed=2024] epoch  8  dist=29.52  gnorm=0.6882  train_acc=0.9337  test_acc=0.8868
+  [MLP/Adam/seed=2024] epoch  9  dist=31.62  gnorm=0.6795  train_acc=0.9359  test_acc=0.8867
+  [MLP/Adam/seed=2024] epoch 10  dist=33.54  gnorm=0.6761  train_acc=0.9453  test_acc=0.8943
+  [MLP/Adam/seed=2024] epoch 11  dist=35.45  gnorm=0.6760  train_acc=0.9476  test_acc=0.8921
+  [MLP/Adam/seed=2024] epoch 12  dist=37.28  gnorm=0.6724  train_acc=0.9492  test_acc=0.8921
+  [MLP/Adam/seed=2024] epoch 13  dist=39.00  gnorm=0.6642  train_acc=0.9483  test_acc=0.8852
+  [MLP/Adam/seed=2024] epoch 14  dist=40.73  gnorm=0.6648  train_acc=0.9507  test_acc=0.8871
+  [MLP/Adam/seed=2024] epoch 15  dist=42.38  gnorm=0.6772  train_acc=0.9646  test_acc=0.8943
+  [MLP/Adam/seed=2024] epoch 16  dist=43.94  gnorm=0.6644  train_acc=0.9622  test_acc=0.8917
+  [MLP/Adam/seed=2024] epoch 17  dist=45.36  gnorm=0.6475  train_acc=0.9637  test_acc=0.8895
+  [MLP/Adam/seed=2024] epoch 18  dist=46.80  gnorm=0.6423  train_acc=0.9670  test_acc=0.8940
+  [MLP/Adam/seed=2024] epoch 19  dist=48.20  gnorm=0.6485  train_acc=0.9677  test_acc=0.8902
+  [MLP/Adam/seed=2024] epoch 20  dist=49.62  gnorm=0.6398  train_acc=0.9676  test_acc=0.8887
+  [MLP/Adam/seed=2024] epoch 21  dist=50.88  gnorm=0.6259  train_acc=0.9772  test_acc=0.8942
+  [MLP/Adam/seed=2024] epoch 22  dist=52.16  gnorm=0.6275  train_acc=0.9728  test_acc=0.8911
+  [MLP/Adam/seed=2024] epoch 23  dist=53.36  gnorm=0.6064  train_acc=0.9777  test_acc=0.8934
+  [MLP/Adam/seed=2024] epoch 24  dist=54.64  gnorm=0.6391  train_acc=0.9784  test_acc=0.8918
+  [MLP/Adam/seed=2024] epoch 25  dist=55.82  gnorm=0.6025  train_acc=0.9823  test_acc=0.8927
+  [MLP/Adam/seed=2024] epoch 26  dist=57.07  gnorm=0.6097  train_acc=0.9802  test_acc=0.8919
+  [MLP/Adam/seed=2024] epoch 27  dist=58.21  gnorm=0.6090  train_acc=0.9838  test_acc=0.8970
+  [MLP/Adam/seed=2024] epoch 28  dist=59.27  gnorm=0.5769  train_acc=0.9842  test_acc=0.8923
+  [MLP/Adam/seed=2024] epoch 29  dist=60.46  gnorm=0.6183  train_acc=0.9765  test_acc=0.8880
+  [MLP/Adam/seed=2024] epoch 30  dist=61.52  gnorm=0.5768  train_acc=0.9812  test_acc=0.8901
+  Computing sharpness for MLP/Adam/seed=2024...
+  Computing Hessian trace for MLP/Adam/seed=2024...
+  Done in 1119.0s ¡ú ./results_part2\MLP_Adam_seed2024.json
+
+============================================================
+  Training: SmallCNN | SGD | seed=42
+============================================================
+  [SmallCNN/SGD/seed=42] epoch  1  dist=4.08  gnorm=2.0541  train_acc=0.8936  test_acc=0.8799
+  [SmallCNN/SGD/seed=42] epoch  2  dist=5.19  gnorm=1.7110  train_acc=0.9165  test_acc=0.8996
+  [SmallCNN/SGD/seed=42] epoch  3  dist=6.03  gnorm=1.5748  train_acc=0.9231  test_acc=0.9030
+  [SmallCNN/SGD/seed=42] epoch  4  dist=6.74  gnorm=1.4826  train_acc=0.9327  test_acc=0.9115
+  [SmallCNN/SGD/seed=42] epoch  5  dist=7.39  gnorm=1.4672  train_acc=0.9310  test_acc=0.9059
+  [SmallCNN/SGD/seed=42] epoch  6  dist=7.99  gnorm=1.4586  train_acc=0.9433  test_acc=0.9156
+  [SmallCNN/SGD/seed=42] epoch  7  dist=8.54  gnorm=1.4412  train_acc=0.9467  test_acc=0.9159
+  [SmallCNN/SGD/seed=42] epoch  8  dist=9.08  gnorm=1.4261  train_acc=0.9495  test_acc=0.9131
+  [SmallCNN/SGD/seed=42] epoch  9  dist=9.59  gnorm=1.4307  train_acc=0.9543  test_acc=0.9155
+  [SmallCNN/SGD/seed=42] epoch 10  dist=10.09  gnorm=1.4106  train_acc=0.9568  test_acc=0.9157
+  [SmallCNN/SGD/seed=42] epoch 11  dist=10.57  gnorm=1.3949  train_acc=0.9517  test_acc=0.9068
+  [SmallCNN/SGD/seed=42] epoch 12  dist=11.05  gnorm=1.4002  train_acc=0.9670  test_acc=0.9173
+  [SmallCNN/SGD/seed=42] epoch 13  dist=11.51  gnorm=1.3960  train_acc=0.9707  test_acc=0.9167
+  [SmallCNN/SGD/seed=42] epoch 14  dist=11.96  gnorm=1.4023  train_acc=0.9670  test_acc=0.9138
+  [SmallCNN/SGD/seed=42] epoch 15  dist=12.39  gnorm=1.3769  train_acc=0.9678  test_acc=0.9120
+  [SmallCNN/SGD/seed=42] epoch 16  dist=12.81  gnorm=1.3671  train_acc=0.9744  test_acc=0.9168
+  [SmallCNN/SGD/seed=42] epoch 17  dist=13.22  gnorm=1.3501  train_acc=0.9796  test_acc=0.9160
+  [SmallCNN/SGD/seed=42] epoch 18  dist=13.59  gnorm=1.2866  train_acc=0.9823  test_acc=0.9177
+  [SmallCNN/SGD/seed=42] epoch 19  dist=13.95  gnorm=1.2616  train_acc=0.9870  test_acc=0.9204
+  [SmallCNN/SGD/seed=42] epoch 20  dist=14.30  gnorm=1.2697  train_acc=0.9872  test_acc=0.9201
+  [SmallCNN/SGD/seed=42] epoch 21  dist=14.64  gnorm=1.1876  train_acc=0.9878  test_acc=0.9179
+  [SmallCNN/SGD/seed=42] epoch 22  dist=14.94  gnorm=1.1248  train_acc=0.9921  test_acc=0.9204
+  [SmallCNN/SGD/seed=42] epoch 23  dist=15.21  gnorm=1.0820  train_acc=0.9888  test_acc=0.9186
+  [SmallCNN/SGD/seed=42] epoch 24  dist=15.49  gnorm=1.1079  train_acc=0.9932  test_acc=0.9171
+  [SmallCNN/SGD/seed=42] epoch 25  dist=15.73  gnorm=0.9809  train_acc=0.9938  test_acc=0.9187
+  [SmallCNN/SGD/seed=42] epoch 26  dist=15.99  gnorm=1.0741  train_acc=0.9922  test_acc=0.9181
+  [SmallCNN/SGD/seed=42] epoch 27  dist=16.28  gnorm=1.1756  train_acc=0.9926  test_acc=0.9167
+  [SmallCNN/SGD/seed=42] epoch 28  dist=16.47  gnorm=0.7975  train_acc=0.9956  test_acc=0.9182
+  [SmallCNN/SGD/seed=42] epoch 29  dist=16.66  gnorm=0.8224  train_acc=0.9956  test_acc=0.9218
+  [SmallCNN/SGD/seed=42] epoch 30  dist=16.81  gnorm=0.6345  train_acc=0.9976  test_acc=0.9169
+  Computing sharpness for SmallCNN/SGD/seed=42...
+  Computing Hessian trace for SmallCNN/SGD/seed=42...
+  Done in 2042.5s ¡ú ./results_part2\SmallCNN_SGD_seed42.json
+
+============================================================
+  Training: SmallCNN | SGD | seed=123
+============================================================
+  [SmallCNN/SGD/seed=123] epoch  1  dist=4.08  gnorm=2.0508  train_acc=0.8946  test_acc=0.8833
+  [SmallCNN/SGD/seed=123] epoch  2  dist=5.19  gnorm=1.6839  train_acc=0.9073  test_acc=0.8910
+  [SmallCNN/SGD/seed=123] epoch  3  dist=6.01  gnorm=1.5729  train_acc=0.9143  test_acc=0.8926
+  [SmallCNN/SGD/seed=123] epoch  4  dist=6.73  gnorm=1.4909  train_acc=0.9255  test_acc=0.9032
+  [SmallCNN/SGD/seed=123] epoch  5  dist=7.37  gnorm=1.4796  train_acc=0.9351  test_acc=0.9084
+  [SmallCNN/SGD/seed=123] epoch  6  dist=7.98  gnorm=1.4649  train_acc=0.9356  test_acc=0.9057
+  [SmallCNN/SGD/seed=123] epoch  7  dist=8.53  gnorm=1.4029  train_acc=0.9389  test_acc=0.9064
+  [SmallCNN/SGD/seed=123] epoch  8  dist=9.06  gnorm=1.4140  train_acc=0.9455  test_acc=0.9124
+  [SmallCNN/SGD/seed=123] epoch  9  dist=9.57  gnorm=1.4107  train_acc=0.9501  test_acc=0.9128
+  [SmallCNN/SGD/seed=123] epoch 10  dist=10.05  gnorm=1.4063  train_acc=0.9511  test_acc=0.9100
+  [SmallCNN/SGD/seed=123] epoch 11  dist=10.53  gnorm=1.3784  train_acc=0.9622  test_acc=0.9173
+  [SmallCNN/SGD/seed=123] epoch 12  dist=11.00  gnorm=1.3959  train_acc=0.9605  test_acc=0.9152
+  [SmallCNN/SGD/seed=123] epoch 13  dist=11.44  gnorm=1.3641  train_acc=0.9640  test_acc=0.9148
+  [SmallCNN/SGD/seed=123] epoch 14  dist=11.88  gnorm=1.3793  train_acc=0.9725  test_acc=0.9195
+  [SmallCNN/SGD/seed=123] epoch 15  dist=12.30  gnorm=1.3469  train_acc=0.9730  test_acc=0.9166
+  [SmallCNN/SGD/seed=123] epoch 16  dist=12.72  gnorm=1.3642  train_acc=0.9702  test_acc=0.9127
+  [SmallCNN/SGD/seed=123] epoch 17  dist=13.12  gnorm=1.3433  train_acc=0.9757  test_acc=0.9163
+  [SmallCNN/SGD/seed=123] epoch 18  dist=13.51  gnorm=1.3105  train_acc=0.9813  test_acc=0.9185
+  [SmallCNN/SGD/seed=123] epoch 19  dist=13.87  gnorm=1.2764  train_acc=0.9780  test_acc=0.9161
+  [SmallCNN/SGD/seed=123] epoch 20  dist=14.24  gnorm=1.2987  train_acc=0.9864  test_acc=0.9185
+  [SmallCNN/SGD/seed=123] epoch 21  dist=14.58  gnorm=1.2255  train_acc=0.9838  test_acc=0.9172
+  [SmallCNN/SGD/seed=123] epoch 22  dist=14.91  gnorm=1.2093  train_acc=0.9884  test_acc=0.9146
+  [SmallCNN/SGD/seed=123] epoch 23  dist=15.19  gnorm=1.0758  train_acc=0.9931  test_acc=0.9181
+  [SmallCNN/SGD/seed=123] epoch 24  dist=15.50  gnorm=1.1999  train_acc=0.9791  test_acc=0.9107
+  [SmallCNN/SGD/seed=123] epoch 25  dist=15.78  gnorm=1.1058  train_acc=0.9872  test_acc=0.9160
+  [SmallCNN/SGD/seed=123] epoch 26  dist=16.06  gnorm=1.1224  train_acc=0.9907  test_acc=0.9157
+  [SmallCNN/SGD/seed=123] epoch 27  dist=16.30  gnorm=1.0121  train_acc=0.9945  test_acc=0.9172
+  [SmallCNN/SGD/seed=123] epoch 28  dist=16.53  gnorm=0.9628  train_acc=0.9894  test_acc=0.9127
+  [SmallCNN/SGD/seed=123] epoch 29  dist=16.74  gnorm=0.8997  train_acc=0.9946  test_acc=0.9139
+  [SmallCNN/SGD/seed=123] epoch 30  dist=16.93  gnorm=0.7987  train_acc=0.9958  test_acc=0.9160
+  Computing sharpness for SmallCNN/SGD/seed=123...
+  Computing Hessian trace for SmallCNN/SGD/seed=123...
+  Done in 1124.6s ¡ú ./results_part2\SmallCNN_SGD_seed123.json
+
+============================================================
+  Training: SmallCNN | SGD | seed=456
+============================================================
+  [SmallCNN/SGD/seed=456] epoch  1  dist=4.11  gnorm=2.1309  train_acc=0.8867  test_acc=0.8736
+  [SmallCNN/SGD/seed=456] epoch  2  dist=5.19  gnorm=1.7029  train_acc=0.9133  test_acc=0.8968
+  [SmallCNN/SGD/seed=456] epoch  3  dist=6.03  gnorm=1.5926  train_acc=0.9201  test_acc=0.9005
+  [SmallCNN/SGD/seed=456] epoch  4  dist=6.77  gnorm=1.5350  train_acc=0.9204  test_acc=0.9024
+  [SmallCNN/SGD/seed=456] epoch  5  dist=7.40  gnorm=1.4299  train_acc=0.9381  test_acc=0.9105
+  [SmallCNN/SGD/seed=456] epoch  6  dist=7.97  gnorm=1.4411  train_acc=0.9327  test_acc=0.9031
+  [SmallCNN/SGD/seed=456] epoch  7  dist=8.54  gnorm=1.4358  train_acc=0.9503  test_acc=0.9129
+  [SmallCNN/SGD/seed=456] epoch  8  dist=9.08  gnorm=1.4007  train_acc=0.9517  test_acc=0.9136
+  [SmallCNN/SGD/seed=456] epoch  9  dist=9.57  gnorm=1.3725  train_acc=0.9382  test_acc=0.9042
+  [SmallCNN/SGD/seed=456] epoch 10  dist=10.06  gnorm=1.4015  train_acc=0.9568  test_acc=0.9172
+  [SmallCNN/SGD/seed=456] epoch 11  dist=10.55  gnorm=1.3865  train_acc=0.9464  test_acc=0.9030
+  [SmallCNN/SGD/seed=456] epoch 12  dist=11.01  gnorm=1.3745  train_acc=0.9665  test_acc=0.9175
+  [SmallCNN/SGD/seed=456] epoch 13  dist=11.45  gnorm=1.3539  train_acc=0.9667  test_acc=0.9165
+  [SmallCNN/SGD/seed=456] epoch 14  dist=11.89  gnorm=1.3655  train_acc=0.9736  test_acc=0.9194
+  [SmallCNN/SGD/seed=456] epoch 15  dist=12.31  gnorm=1.3220  train_acc=0.9754  test_acc=0.9171
+  [SmallCNN/SGD/seed=456] epoch 16  dist=12.72  gnorm=1.3511  train_acc=0.9705  test_acc=0.9127
+  [SmallCNN/SGD/seed=456] epoch 17  dist=13.12  gnorm=1.3076  train_acc=0.9819  test_acc=0.9173
+  [SmallCNN/SGD/seed=456] epoch 18  dist=13.48  gnorm=1.2496  train_acc=0.9823  test_acc=0.9209
+  [SmallCNN/SGD/seed=456] epoch 19  dist=13.82  gnorm=1.2105  train_acc=0.9861  test_acc=0.9188
+  [SmallCNN/SGD/seed=456] epoch 20  dist=14.16  gnorm=1.2022  train_acc=0.9886  test_acc=0.9223
+  [SmallCNN/SGD/seed=456] epoch 21  dist=14.50  gnorm=1.2700  train_acc=0.9872  test_acc=0.9162
+  [SmallCNN/SGD/seed=456] epoch 22  dist=14.82  gnorm=1.2072  train_acc=0.9885  test_acc=0.9158
+  [SmallCNN/SGD/seed=456] epoch 23  dist=15.12  gnorm=1.1228  train_acc=0.9876  test_acc=0.9171
+  [SmallCNN/SGD/seed=456] epoch 24  dist=15.40  gnorm=1.1050  train_acc=0.9910  test_acc=0.9164
+  [SmallCNN/SGD/seed=456] epoch 25  dist=15.63  gnorm=0.9332  train_acc=0.9822  test_acc=0.9128
+  [SmallCNN/SGD/seed=456] epoch 26  dist=15.88  gnorm=0.9826  train_acc=0.9914  test_acc=0.9132
+  [SmallCNN/SGD/seed=456] epoch 27  dist=16.09  gnorm=0.8668  train_acc=0.9956  test_acc=0.9194
+  [SmallCNN/SGD/seed=456] epoch 28  dist=16.28  gnorm=0.8150  train_acc=0.9976  test_acc=0.9193
+  [SmallCNN/SGD/seed=456] epoch 29  dist=16.46  gnorm=0.7883  train_acc=0.9929  test_acc=0.9151
+  [SmallCNN/SGD/seed=456] epoch 30  dist=16.62  gnorm=0.6989  train_acc=0.9949  test_acc=0.9158
+  Computing sharpness for SmallCNN/SGD/seed=456...
+  Computing Hessian trace for SmallCNN/SGD/seed=456...
+  Done in 1499.6s ¡ú ./results_part2\SmallCNN_SGD_seed456.json
+
+============================================================
+  Training: SmallCNN | SGD | seed=789
+============================================================
+  [SmallCNN/SGD/seed=789] epoch  1  dist=4.12  gnorm=2.0726  train_acc=0.8889  test_acc=0.8775
+  [SmallCNN/SGD/seed=789] epoch  2  dist=5.21  gnorm=1.7047  train_acc=0.9117  test_acc=0.8950
+  [SmallCNN/SGD/seed=789] epoch  3  dist=6.01  gnorm=1.5800  train_acc=0.9017  test_acc=0.8842
+  [SmallCNN/SGD/seed=789] epoch  4  dist=6.72  gnorm=1.4994  train_acc=0.9140  test_acc=0.8942
+  [SmallCNN/SGD/seed=789] epoch  5  dist=7.38  gnorm=1.4865  train_acc=0.9336  test_acc=0.9056
+  [SmallCNN/SGD/seed=789] epoch  6  dist=7.96  gnorm=1.4341  train_acc=0.9435  test_acc=0.9137
+  [SmallCNN/SGD/seed=789] epoch  7  dist=8.51  gnorm=1.4040  train_acc=0.9491  test_acc=0.9162
+  [SmallCNN/SGD/seed=789] epoch  8  dist=9.04  gnorm=1.4034  train_acc=0.9526  test_acc=0.9130
+  [SmallCNN/SGD/seed=789] epoch  9  dist=9.55  gnorm=1.4050  train_acc=0.9541  test_acc=0.9099
+  [SmallCNN/SGD/seed=789] epoch 10  dist=10.04  gnorm=1.3966  train_acc=0.9569  test_acc=0.9168
+  [SmallCNN/SGD/seed=789] epoch 11  dist=10.54  gnorm=1.4096  train_acc=0.9617  test_acc=0.9123
+  [SmallCNN/SGD/seed=789] epoch 12  dist=11.02  gnorm=1.3994  train_acc=0.9644  test_acc=0.9157
+  [SmallCNN/SGD/seed=789] epoch 13  dist=11.48  gnorm=1.4057  train_acc=0.9700  test_acc=0.9177
+  [SmallCNN/SGD/seed=789] epoch 14  dist=11.93  gnorm=1.4041  train_acc=0.9661  test_acc=0.9109
+  [SmallCNN/SGD/seed=789] epoch 15  dist=12.36  gnorm=1.3673  train_acc=0.9748  test_acc=0.9121
+  [SmallCNN/SGD/seed=789] epoch 16  dist=12.76  gnorm=1.3206  train_acc=0.9724  test_acc=0.9112
+  [SmallCNN/SGD/seed=789] epoch 17  dist=13.19  gnorm=1.3882  train_acc=0.9795  test_acc=0.9129
+  [SmallCNN/SGD/seed=789] epoch 18  dist=13.57  gnorm=1.2983  train_acc=0.9773  test_acc=0.9104
+  [SmallCNN/SGD/seed=789] epoch 19  dist=13.93  gnorm=1.2886  train_acc=0.9746  test_acc=0.9087
+  [SmallCNN/SGD/seed=789] epoch 20  dist=14.29  gnorm=1.2877  train_acc=0.9846  test_acc=0.9160
+  [SmallCNN/SGD/seed=789] epoch 21  dist=14.64  gnorm=1.2493  train_acc=0.9866  test_acc=0.9112
+  [SmallCNN/SGD/seed=789] epoch 22  dist=14.93  gnorm=1.1081  train_acc=0.9871  test_acc=0.9173
+  [SmallCNN/SGD/seed=789] epoch 23  dist=15.22  gnorm=1.1407  train_acc=0.9886  test_acc=0.9152
+  [SmallCNN/SGD/seed=789] epoch 24  dist=15.51  gnorm=1.1371  train_acc=0.9856  test_acc=0.9141
+  [SmallCNN/SGD/seed=789] epoch 25  dist=15.77  gnorm=1.0564  train_acc=0.9870  test_acc=0.9106
+  [SmallCNN/SGD/seed=789] epoch 26  dist=16.02  gnorm=1.0118  train_acc=0.9870  test_acc=0.9134
+  [SmallCNN/SGD/seed=789] epoch 27  dist=16.27  gnorm=1.0836  train_acc=0.9917  test_acc=0.9127
+  [SmallCNN/SGD/seed=789] epoch 28  dist=16.47  gnorm=0.8492  train_acc=0.9962  test_acc=0.9176
+  [SmallCNN/SGD/seed=789] epoch 29  dist=16.65  gnorm=0.8147  train_acc=0.9946  test_acc=0.9165
+  [SmallCNN/SGD/seed=789] epoch 30  dist=16.79  gnorm=0.6234  train_acc=0.9984  test_acc=0.9170
+  Computing sharpness for SmallCNN/SGD/seed=789...
+  Computing Hessian trace for SmallCNN/SGD/seed=789...
+  Done in 1915.2s ¡ú ./results_part2\SmallCNN_SGD_seed789.json
+
+============================================================
+  Training: SmallCNN | SGD | seed=2024
+============================================================
+  [SmallCNN/SGD/seed=2024] epoch  1  dist=4.10  gnorm=2.0946  train_acc=0.8869  test_acc=0.8734
+  [SmallCNN/SGD/seed=2024] epoch  2  dist=5.19  gnorm=1.6683  train_acc=0.9041  test_acc=0.8899
+  [SmallCNN/SGD/seed=2024] epoch  3  dist=6.01  gnorm=1.5348  train_acc=0.9238  test_acc=0.9039
+  [SmallCNN/SGD/seed=2024] epoch  4  dist=6.70  gnorm=1.4839  train_acc=0.9346  test_acc=0.9106
+  [SmallCNN/SGD/seed=2024] epoch  5  dist=7.33  gnorm=1.4687  train_acc=0.9395  test_acc=0.9121
+  [SmallCNN/SGD/seed=2024] epoch  6  dist=7.93  gnorm=1.4501  train_acc=0.9440  test_acc=0.9111
+  [SmallCNN/SGD/seed=2024] epoch  7  dist=8.49  gnorm=1.4572  train_acc=0.9441  test_acc=0.9114
+  [SmallCNN/SGD/seed=2024] epoch  8  dist=9.03  gnorm=1.3810  train_acc=0.9457  test_acc=0.9128
+  [SmallCNN/SGD/seed=2024] epoch  9  dist=9.52  gnorm=1.3904  train_acc=0.9465  test_acc=0.9089
+  [SmallCNN/SGD/seed=2024] epoch 10  dist=10.02  gnorm=1.4147  train_acc=0.9565  test_acc=0.9133
+  [SmallCNN/SGD/seed=2024] epoch 11  dist=10.49  gnorm=1.3884  train_acc=0.9589  test_acc=0.9159
+  [SmallCNN/SGD/seed=2024] epoch 12  dist=10.96  gnorm=1.3977  train_acc=0.9676  test_acc=0.9217
+  [SmallCNN/SGD/seed=2024] epoch 13  dist=11.40  gnorm=1.3701  train_acc=0.9682  test_acc=0.9151
+  [SmallCNN/SGD/seed=2024] epoch 14  dist=11.84  gnorm=1.3571  train_acc=0.9654  test_acc=0.9139
+  [SmallCNN/SGD/seed=2024] epoch 15  dist=12.27  gnorm=1.4044  train_acc=0.9747  test_acc=0.9144
+  [SmallCNN/SGD/seed=2024] epoch 16  dist=12.67  gnorm=1.3600  train_acc=0.9734  test_acc=0.9147
+  [SmallCNN/SGD/seed=2024] epoch 17  dist=13.06  gnorm=1.3216  train_acc=0.9747  test_acc=0.9161
+  [SmallCNN/SGD/seed=2024] epoch 18  dist=13.44  gnorm=1.2983  train_acc=0.9816  test_acc=0.9157
+  [SmallCNN/SGD/seed=2024] epoch 19  dist=13.81  gnorm=1.3015  train_acc=0.9778  test_acc=0.9120
+  [SmallCNN/SGD/seed=2024] epoch 20  dist=14.15  gnorm=1.2372  train_acc=0.9841  test_acc=0.9187
+  [SmallCNN/SGD/seed=2024] epoch 21  dist=14.48  gnorm=1.2493  train_acc=0.9728  test_acc=0.9089
+  [SmallCNN/SGD/seed=2024] epoch 22  dist=14.80  gnorm=1.1835  train_acc=0.9910  test_acc=0.9179
+  [SmallCNN/SGD/seed=2024] epoch 23  dist=15.10  gnorm=1.1281  train_acc=0.9768  test_acc=0.9107
+  [SmallCNN/SGD/seed=2024] epoch 24  dist=15.41  gnorm=1.2048  train_acc=0.9829  test_acc=0.9139
+  [SmallCNN/SGD/seed=2024] epoch 25  dist=15.67  gnorm=1.0912  train_acc=0.9915  test_acc=0.9183
+  [SmallCNN/SGD/seed=2024] epoch 26  dist=15.92  gnorm=1.0532  train_acc=0.9898  test_acc=0.9143
+  [SmallCNN/SGD/seed=2024] epoch 27  dist=16.16  gnorm=0.9733  train_acc=0.9966  test_acc=0.9167
+  [SmallCNN/SGD/seed=2024] epoch 28  dist=16.38  gnorm=0.9523  train_acc=0.9937  test_acc=0.9168
+  [SmallCNN/SGD/seed=2024] epoch 29  dist=16.59  gnorm=0.9095  train_acc=0.9915  test_acc=0.9173
+  [SmallCNN/SGD/seed=2024] epoch 30  dist=16.77  gnorm=0.8332  train_acc=0.9937  test_acc=0.9175
+  Computing sharpness for SmallCNN/SGD/seed=2024...
+  Computing Hessian trace for SmallCNN/SGD/seed=2024...
+  Done in 1592.9s ¡ú ./results_part2\SmallCNN_SGD_seed2024.json
+
+============================================================
+  Training: SmallCNN | Adam | seed=42
+============================================================
+  [SmallCNN/Adam/seed=42] epoch  1  dist=7.05  gnorm=2.3796  train_acc=0.8976  test_acc=0.8851
+  [SmallCNN/Adam/seed=42] epoch  2  dist=9.53  gnorm=1.8923  train_acc=0.9209  test_acc=0.9008
+  [SmallCNN/Adam/seed=42] epoch  3  dist=11.58  gnorm=1.7302  train_acc=0.9281  test_acc=0.9066
+  [SmallCNN/Adam/seed=42] epoch  4  dist=13.39  gnorm=1.5619  train_acc=0.9336  test_acc=0.9092
+  [SmallCNN/Adam/seed=42] epoch  5  dist=15.16  gnorm=1.5657  train_acc=0.9376  test_acc=0.9120
+  [SmallCNN/Adam/seed=42] epoch  6  dist=16.87  gnorm=1.5353  train_acc=0.9494  test_acc=0.9188
+  [SmallCNN/Adam/seed=42] epoch  7  dist=18.51  gnorm=1.5041  train_acc=0.9553  test_acc=0.9160
+  [SmallCNN/Adam/seed=42] epoch  8  dist=20.10  gnorm=1.4749  train_acc=0.9524  test_acc=0.9140
+  [SmallCNN/Adam/seed=42] epoch  9  dist=21.61  gnorm=1.4752  train_acc=0.9599  test_acc=0.9161
+  [SmallCNN/Adam/seed=42] epoch 10  dist=23.15  gnorm=1.4351  train_acc=0.9618  test_acc=0.9123
+  [SmallCNN/Adam/seed=42] epoch 11  dist=24.63  gnorm=1.4309  train_acc=0.9697  test_acc=0.9176
+  [SmallCNN/Adam/seed=42] epoch 12  dist=26.09  gnorm=1.3775  train_acc=0.9715  test_acc=0.9148
+  [SmallCNN/Adam/seed=42] epoch 13  dist=27.44  gnorm=1.3900  train_acc=0.9772  test_acc=0.9161
+  [SmallCNN/Adam/seed=42] epoch 14  dist=28.81  gnorm=1.4029  train_acc=0.9732  test_acc=0.9163
+  [SmallCNN/Adam/seed=42] epoch 15  dist=30.05  gnorm=1.3438  train_acc=0.9807  test_acc=0.9141
+  [SmallCNN/Adam/seed=42] epoch 16  dist=31.27  gnorm=1.3055  train_acc=0.9807  test_acc=0.9154
+  [SmallCNN/Adam/seed=42] epoch 17  dist=32.49  gnorm=1.3013  train_acc=0.9854  test_acc=0.9159
+  [SmallCNN/Adam/seed=42] epoch 18  dist=33.56  gnorm=1.2516  train_acc=0.9869  test_acc=0.9152
+  [SmallCNN/Adam/seed=42] epoch 19  dist=34.67  gnorm=1.2530  train_acc=0.9880  test_acc=0.9178
+  [SmallCNN/Adam/seed=42] epoch 20  dist=35.72  gnorm=1.1912  train_acc=0.9896  test_acc=0.9189
+  [SmallCNN/Adam/seed=42] epoch 21  dist=36.81  gnorm=1.2315  train_acc=0.9855  test_acc=0.9128
+  [SmallCNN/Adam/seed=42] epoch 22  dist=37.77  gnorm=1.0940  train_acc=0.9903  test_acc=0.9141
+  [SmallCNN/Adam/seed=42] epoch 23  dist=38.85  gnorm=1.2501  train_acc=0.9930  test_acc=0.9139
+  [SmallCNN/Adam/seed=42] epoch 24  dist=39.73  gnorm=1.0270  train_acc=0.9897  test_acc=0.9137
+  [SmallCNN/Adam/seed=42] epoch 25  dist=40.61  gnorm=1.0646  train_acc=0.9952  test_acc=0.9160
+  [SmallCNN/Adam/seed=42] epoch 26  dist=41.49  gnorm=1.0361  train_acc=0.9899  test_acc=0.9129
+  [SmallCNN/Adam/seed=42] epoch 27  dist=42.45  gnorm=1.0790  train_acc=0.9899  test_acc=0.9113
+  [SmallCNN/Adam/seed=42] epoch 28  dist=43.33  gnorm=1.0410  train_acc=0.9901  test_acc=0.9088
+  [SmallCNN/Adam/seed=42] epoch 29  dist=44.10  gnorm=0.9595  train_acc=0.9956  test_acc=0.9183
+  [SmallCNN/Adam/seed=42] epoch 30  dist=44.92  gnorm=1.0146  train_acc=0.9960  test_acc=0.9177
+  Computing sharpness for SmallCNN/Adam/seed=42...
+  Computing Hessian trace for SmallCNN/Adam/seed=42...
+  Done in 1372.9s ¡ú ./results_part2\SmallCNN_Adam_seed42.json
+
+============================================================
+  Training: SmallCNN | Adam | seed=123
+============================================================
+  [SmallCNN/Adam/seed=123] epoch  1  dist=7.25  gnorm=2.3361  train_acc=0.9007  test_acc=0.8849
+  [SmallCNN/Adam/seed=123] epoch  2  dist=9.89  gnorm=1.8817  train_acc=0.9116  test_acc=0.8922
+  [SmallCNN/Adam/seed=123] epoch  3  dist=12.01  gnorm=1.6694  train_acc=0.9234  test_acc=0.9002
+  [SmallCNN/Adam/seed=123] epoch  4  dist=14.00  gnorm=1.5864  train_acc=0.9297  test_acc=0.9081
+  [SmallCNN/Adam/seed=123] epoch  5  dist=15.83  gnorm=1.5339  train_acc=0.9431  test_acc=0.9130
+  [SmallCNN/Adam/seed=123] epoch  6  dist=17.66  gnorm=1.4905  train_acc=0.9357  test_acc=0.9047
+  [SmallCNN/Adam/seed=123] epoch  7  dist=19.42  gnorm=1.4460  train_acc=0.9514  test_acc=0.9154
+  [SmallCNN/Adam/seed=123] epoch  8  dist=21.15  gnorm=1.4433  train_acc=0.9545  test_acc=0.9157
+  [SmallCNN/Adam/seed=123] epoch  9  dist=22.82  gnorm=1.4382  train_acc=0.9588  test_acc=0.9163
+  [SmallCNN/Adam/seed=123] epoch 10  dist=24.35  gnorm=1.3990  train_acc=0.9568  test_acc=0.9162
+  [SmallCNN/Adam/seed=123] epoch 11  dist=25.88  gnorm=1.3696  train_acc=0.9693  test_acc=0.9173
+  [SmallCNN/Adam/seed=123] epoch 12  dist=27.37  gnorm=1.3493  train_acc=0.9647  test_acc=0.9144
+  [SmallCNN/Adam/seed=123] epoch 13  dist=28.81  gnorm=1.3261  train_acc=0.9671  test_acc=0.9137
+  [SmallCNN/Adam/seed=123] epoch 14  dist=30.19  gnorm=1.3138  train_acc=0.9748  test_acc=0.9150
+  [SmallCNN/Adam/seed=123] epoch 15  dist=31.56  gnorm=1.2935  train_acc=0.9795  test_acc=0.9174
+  [SmallCNN/Adam/seed=123] epoch 16  dist=32.85  gnorm=1.2666  train_acc=0.9834  test_acc=0.9172
+  [SmallCNN/Adam/seed=123] epoch 17  dist=34.22  gnorm=1.2442  train_acc=0.9813  test_acc=0.9179
+  [SmallCNN/Adam/seed=123] epoch 18  dist=35.41  gnorm=1.1985  train_acc=0.9866  test_acc=0.9196
+  [SmallCNN/Adam/seed=123] epoch 19  dist=36.60  gnorm=1.1745  train_acc=0.9889  test_acc=0.9172
+  [SmallCNN/Adam/seed=123] epoch 20  dist=37.83  gnorm=1.1883  train_acc=0.9809  test_acc=0.9128
+  [SmallCNN/Adam/seed=123] epoch 21  dist=38.91  gnorm=1.1389  train_acc=0.9874  test_acc=0.9193
+  [SmallCNN/Adam/seed=123] epoch 22  dist=39.93  gnorm=1.0633  train_acc=0.9777  test_acc=0.9083
+  [SmallCNN/Adam/seed=123] epoch 23  dist=40.89  gnorm=1.0877  train_acc=0.9883  test_acc=0.9125
+  [SmallCNN/Adam/seed=123] epoch 24  dist=42.07  gnorm=1.1288  train_acc=0.9902  test_acc=0.9169
+  [SmallCNN/Adam/seed=123] epoch 25  dist=43.18  gnorm=1.1360  train_acc=0.9919  test_acc=0.9192
+  [SmallCNN/Adam/seed=123] epoch 26  dist=44.15  gnorm=1.0403  train_acc=0.9915  test_acc=0.9154
+  [SmallCNN/Adam/seed=123] epoch 27  dist=44.94  gnorm=0.8902  train_acc=0.9972  test_acc=0.9179
+  [SmallCNN/Adam/seed=123] epoch 28  dist=45.91  gnorm=1.0204  train_acc=0.9931  test_acc=0.9158
+  [SmallCNN/Adam/seed=123] epoch 29  dist=46.68  gnorm=0.9162  train_acc=0.9865  test_acc=0.9156
+  [SmallCNN/Adam/seed=123] epoch 30  dist=47.49  gnorm=0.8653  train_acc=0.9931  test_acc=0.9137
+  Computing sharpness for SmallCNN/Adam/seed=123...
+  Computing Hessian trace for SmallCNN/Adam/seed=123...
+  Done in 1479.9s ¡ú ./results_part2\SmallCNN_Adam_seed123.json
+Already exists, skipping: ./results_part2\SmallCNN_Adam_seed456.json
+Already exists, skipping: ./results_part2\SmallCNN_Adam_seed789.json
+Already exists, skipping: ./results_part2\SmallCNN_Adam_seed2024.json
+
+All runs complete. Results saved to: ./results_part2
