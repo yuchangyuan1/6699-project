@@ -116,7 +116,10 @@ SmallCNN & Adam @ epoch $T$      & $46.62 \pm 0.96$ & $61.77 \pm 26.43$ & $184.8
 \label{tab:loss-matched}
 \end{table}
 
-The architecture comparison is striking. On the MLP, Adam's $\lambda_{\max}$ is roughly $5.4\times$ smaller than SGD's at matched training loss ($6.86$ vs.\ $37.15$), and its Hessian trace is $6.4\times$ smaller ($68.4$ vs.\ $437.2$): the Part~II flatness gap survives the loss-matching control intact. The two optimizers genuinely select different curvature regimes; Adam's flatter landscape is not a consequence of having simply reached lower training loss. On the SmallCNN, the picture inverts: Adam's $\lambda_{\max}$ is roughly $10\times$ \emph{larger} than SGD's at matched loss ($61.77$ vs.\ $6.17$), while Hessian trace is comparable ($184.8$ vs.\ $221.8$). The optimizer-induced flatness ordering is therefore architecture-dependent and not a universal property of Adam-versus-SGD; the convolutional architecture changes which preconditioner ends up selecting the flatter dominant direction.
+\paragraph{Estimator Variance.}
+The standard deviations on $\lambda_{\max}(H)$ in Table~\ref{tab:loss-matched} are large relative to the means, particularly for the SmallCNN/SGD entry ($6.17 \pm 12.34$). Two sources of noise compound here: power-iteration estimates on a $\sim 10^5$-parameter neural Hessian are sensitive to the random initialization of the iterate, and the value of $\lambda_{\max}$ itself varies across the five matched seeds. We report mean $\pm$ std for comparability with Part~II rather than median/IQR. The MLP architecture comparison ($37.15$ vs.\ $6.86$) is statistically distinguishable at one sigma despite this noise, but the SmallCNN reversal ($6.17$ vs.\ $61.77$) should be read as a directional finding from a single architecture pair rather than a tight quantitative claim.
+
+The architecture comparison is striking. On the MLP, Adam's $\lambda_{\max}$ is roughly $5.4\times$ smaller than SGD's at matched training loss ($6.86$ vs.\ $37.15$), and its Hessian trace is $6.4\times$ smaller ($68.4$ vs.\ $437.2$): the Part~II flatness gap survives the loss-matching control intact. The two optimizers genuinely select different curvature regimes; Adam's flatter landscape is not a consequence of having simply reached lower training loss. On the SmallCNN, the picture inverts: Adam's $\lambda_{\max}$ is roughly $10\times$ \emph{larger} than SGD's at matched loss ($61.77$ vs.\ $6.17$), while Hessian trace is comparable ($184.8$ vs.\ $221.8$). The opposite sign of the curvature gap on the SmallCNN, even after loss matching, suggests that the optimizer-induced flatness ordering is not a universal property of Adam-versus-SGD: at least one of these architecture-optimizer combinations produces a different selection. Given the single architecture pair and the high variance of $\lambda_{\max}$ estimates noted above, we read this as a directional finding that motivates replication on a larger architecture sample rather than as an established architectural rule.
 
 Function-space disagreement also persists at matched loss. At $t^\star$ versus $T$, $D_{\mathrm{pred}}$ is $0.0772 \pm 0.0066$ on the MLP and $0.0692 \pm 0.0024$ on the SmallCNN, while symmetric KL is $0.1880$ and $0.2858$ respectively---values comparable to the standard final-epoch comparison reported in Section~\ref{sec:function-space}. Even after controlling for training progress, SGD and Adam have selected different predictors.
 
@@ -155,11 +158,11 @@ Figure~\ref{fig:perturbation} shows $\Delta\widehat L(\sigma)$ versus $\sigma$ o
 \centering
 \begin{subfigure}{0.48\linewidth}\includegraphics[width=\linewidth]{figures_extended/perturbation_curve_mlp.png}\caption{MLP}\end{subfigure}
 \begin{subfigure}{0.48\linewidth}\includegraphics[width=\linewidth]{figures_extended/perturbation_curve_cnn.png}\caption{SmallCNN}\end{subfigure}
-\caption{Mean training-loss increase $\Delta\widehat L(\sigma)$ under relative isotropic Gaussian perturbations, averaged over five matched seeds and $K=10$ perturbations per $\sigma$. Lower curves indicate flatter solutions in the perturbation sense.}
+\caption{Mean training-loss increase $\Delta\widehat L(\sigma)$ under relative isotropic Gaussian perturbations, averaged over five matched seeds and $K=10$ perturbations per $\sigma$. Values at $\sigma \le 3\times 10^{-3}$ are at the noise floor ($\le 10^{-5}$); the operational comparison is at $\sigma=10^{-2}$.}
 \label{fig:perturbation}
 \end{figure}
 
-The data are consistent with the local quadratic prediction $\Delta\widehat L \propto \sigma^2\operatorname{tr}(H)$ at small $\sigma$. At the largest probed perturbation, $\sigma=10^{-2}$, we obtain on the MLP $\Delta\widehat L = (2.3\pm 1.2)\times 10^{-4}$ for SGD versus $(0.9\pm 0.9)\times 10^{-4}$ for Adam, a $\sim 2.5\times$ gap in the direction predicted by Part~II's trace ratio. On the SmallCNN, the values are $(0.5\pm 0.7)\times 10^{-4}$ for SGD and $(1.6\pm 0.8)\times 10^{-4}$ for Adam: SGD now appears slightly flatter under the perturbation probe, again consistent with the architecture-dependent reversal of the curvature ordering observed in Section~\ref{sec:loss-matched}. At smaller $\sigma\le 10^{-3}$, the absolute loss change is at the $10^{-5}$ level and noise-dominated for both optimizers and architectures, indicating that all four trained solutions are operationally flat in an absolute sense; the meaningful contrast is in the rate at which loss rises as the perturbation enters the non-quadratic regime. This perturbation evidence corroborates the Hessian readings without overturning them: the MLP/CNN flatness reversal is real and not a Hessian-estimation artifact.
+Across $\sigma \in \{10^{-4}, 3\!\times\!10^{-4}, 10^{-3}, 3\!\times\!10^{-3}\}$, $\Delta\widehat L$ is at the $\le 10^{-5}$ level for all four (architecture, optimizer) configurations and is statistically indistinguishable from zero given the seed variability; these data points primarily establish a noise floor. We therefore restrict the operational comparison to the largest probed magnitude, $\sigma = 10^{-2}$. On the MLP, $\Delta\widehat L = (2.3\pm 1.2)\times 10^{-4}$ for SGD versus $(0.9\pm 0.9)\times 10^{-4}$ for Adam, a $\sim 2.5\times$ gap in the direction predicted by Part~II's trace ratio. On the SmallCNN, the values are $(0.5\pm 0.7)\times 10^{-4}$ for SGD and $(1.6\pm 0.8)\times 10^{-4}$ for Adam, a directional reversal that mirrors the loss-matched Hessian comparison in Section~\ref{sec:loss-matched}. We do not interpret the small-$\sigma$ data points as a separate test of the quadratic prediction $\Delta\widehat L \propto \sigma^2 \operatorname{tr}(H)$; the perturbation evidence corroborates the Hessian readings only at the operational $\sigma = 10^{-2}$ contrast.
 
 \FloatBarrier
 
@@ -201,19 +204,24 @@ Figure~\ref{fig:mode-connectivity} plots $\widehat L(\theta(\lambda))$ over the 
 \begin{table}[H]
 \centering
 \small
-\begin{tabular}{lcc}
+\begin{tabular}{llcc}
 \toprule
-\textbf{Model} & \textbf{Train barrier $B_{\text{train}}$} & \textbf{Test barrier $B_{\text{test}}$} \\
+\textbf{Model} & \textbf{Comparison} & \textbf{Train barrier $B_{\text{train}}$} & \textbf{Test barrier $B_{\text{test}}$} \\
 \midrule
-MLP      & $0.0721 \pm 0.0086$ & $0.0174 \pm 0.0086$ \\
-SmallCNN & $0.0615 \pm 0.0078$ & $0.0032 \pm 0.0065$ \\
+MLP      & SGD-vs-Adam (matched seed)   & $0.0721 \pm 0.0086$ & $0.0174 \pm 0.0086$ \\
+MLP      & SGD-vs-SGD (cross seed)      & $0.4952 \pm 0.0630$ & $0.2855 \pm 0.0614$ \\
+MLP      & Adam-vs-Adam (cross seed)    & $0.4925 \pm 0.0401$ & $0.2528 \pm 0.0389$ \\
+\addlinespace
+SmallCNN & SGD-vs-Adam (matched seed)   & $0.0615 \pm 0.0078$ & $0.0032 \pm 0.0065$ \\
+SmallCNN & SGD-vs-SGD (cross seed)      & $1.1843 \pm 0.2540$ & $0.8102 \pm 0.2547$ \\
+SmallCNN & Adam-vs-Adam (cross seed)    & $1.4214 \pm 0.2918$ & $0.9975 \pm 0.2918$ \\
 \bottomrule
 \end{tabular}
-\caption{Loss barrier between matched SGD and Adam solutions along the linear interpolation. Mean $\pm$ std over five seeds.}
+\caption{Loss barrier along the linear interpolation between two trained solutions. Top sub-block per architecture: matched-seed SGD-vs-Adam (mean $\pm$ std over five seeds). Lower sub-blocks: same-optimizer cross-seed baseline averaged over $C(5,2)=10$ seed pairs. The matched-seed cross-optimizer barrier is roughly an order of magnitude smaller than either same-optimizer cross-seed baseline.}
 \label{tab:mode-connectivity}
 \end{table}
 
-The training-loss barriers are both small but consistently positive ($0.0721$ for the MLP, $0.0615$ for the SmallCNN), and substantially larger than the cross-seed standard deviations: there is a real, reproducible bump in training loss along the straight line connecting matched SGD and Adam solutions, even after BatchNorm recalibration. This is consistent with the two optimizers having selected distinct local minima rather than two points in the same flat basin, and it is consistent with the large parameter-space distances reported in Part~II being driven by basin-level rather than within-basin separation. The test-loss barriers are an order of magnitude smaller ($0.0174$ on the MLP and $0.0032$ on the SmallCNN, the latter statistically indistinguishable from zero), which says that the two basins, although separated on the training surface, agree closely on the test distribution. The basin separation we detect is therefore a feature of the empirical risk landscape, not of the population-risk landscape.
+The matched-seed cross-optimizer training-loss barriers are small but consistently positive ($0.0721$ for the MLP, $0.0615$ for the SmallCNN), and substantially larger than the cross-seed standard deviations: there is a real, reproducible bump in training loss along the straight line connecting matched SGD and Adam solutions, even after BatchNorm recalibration. The same-optimizer cross-seed baselines, however, give a far higher barrier scale: $B_{\text{train}}^{\mathrm{SS}} = 0.4952 \pm 0.0630$ and $B_{\text{train}}^{\mathrm{AA}} = 0.4925 \pm 0.0401$ on the MLP, and $1.1843 \pm 0.2540$ / $1.4214 \pm 0.2918$ on the SmallCNN. The cross-optimizer matched-seed barrier is therefore roughly $7\times$ smaller than the same-optimizer cross-seed barrier on the MLP and $\sim 20\times$ smaller on the SmallCNN. The basin separation between SGD and Adam at matched seed is real but, in absolute terms, far smaller than the basin separation between two same-optimizer runs from different initializations. What drives basin connectivity in this protocol is primarily the shared seed (initialization plus minibatch order), not optimizer agreement; the cross-optimizer effect is a small additional barrier on top of an otherwise highly connected matched-seed landscape. Test-loss barriers tell the same story at lower magnitude: $0.0174$ / $0.0032$ for matched-seed cross-optimizer pairs versus $\sim 0.25$--$1.0$ for same-optimizer cross-seed pairs.
 
 \FloatBarrier
 
@@ -243,19 +251,24 @@ Table~\ref{tab:function-space} reports the three metrics.
 \begin{table}[H]
 \centering
 \small
-\begin{tabular}{lccc}
+\begin{tabular}{llccc}
 \toprule
-\textbf{Model} & $D_{\mathrm{pred}}$ & $D_{\mathrm{SKL}}$ & $C_{\mathrm{logit}}$ \\
+\textbf{Model} & \textbf{Comparison} & $D_{\mathrm{pred}}$ & $D_{\mathrm{SKL}}$ & $C_{\mathrm{logit}}$ \\
 \midrule
-MLP      & $0.0738 \pm 0.0028$ & $0.1749 \pm 0.0051$ & $0.6122 \pm 0.0058$ \\
-SmallCNN & $0.0671 \pm 0.0042$ & $0.2676 \pm 0.0219$ & $0.6516 \pm 0.0061$ \\
+MLP      & SGD-vs-Adam (matched seed) & $0.0738 \pm 0.0028$ & $0.1749 \pm 0.0051$ & $0.6122 \pm 0.0058$ \\
+MLP      & SGD-vs-SGD (cross seed)    & $0.0868 \pm 0.0067$ & $0.2056 \pm 0.0286$ & $0.9187 \pm 0.0035$ \\
+MLP      & Adam-vs-Adam (cross seed)  & $0.0822 \pm 0.0042$ & $0.2348 \pm 0.0195$ & $0.9561 \pm 0.0022$ \\
+\addlinespace
+SmallCNN & SGD-vs-Adam (matched seed) & $0.0671 \pm 0.0042$ & $0.2676 \pm 0.0219$ & $0.6516 \pm 0.0061$ \\
+SmallCNN & SGD-vs-SGD (cross seed)    & $0.0740 \pm 0.0045$ & $0.3121 \pm 0.0324$ & $0.9050 \pm 0.0039$ \\
+SmallCNN & Adam-vs-Adam (cross seed)  & $0.0786 \pm 0.0031$ & $0.4038 \pm 0.0212$ & $0.9295 \pm 0.0040$ \\
 \bottomrule
 \end{tabular}
-\caption{Function-space similarity between matched SGD and Adam models on the Fashion-MNIST test set. Mean $\pm$ std over five seeds.}
+\caption{Function-space similarity on the Fashion-MNIST test set. Top sub-block per architecture: matched-seed SGD-vs-Adam (mean $\pm$ std over five seeds). Lower sub-blocks: same-optimizer cross-seed baseline averaged over $C(5,2)=10$ pairs. $D_{\mathrm{pred}}$ and $D_{\mathrm{SKL}}$ are at or below the same-optimizer cross-seed baseline; only the logit-direction cosine $C_{\mathrm{logit}}$ shows a sharp matched-seed cross-optimizer signal.}
 \label{tab:function-space}
 \end{table}
 
-The two optimizers disagree on $7.4\%$ of MLP test predictions and $6.7\%$ of SmallCNN predictions, considerably more than the residual seed-to-seed disagreement that would arise from numerical noise alone. Logit-direction cosine similarity is $\sim 0.61$--$0.65$ for both architectures, far below the value $\approx 1.0$ one would obtain comparing a model to itself; the trained predictors are correlated but distinguishably different. The architecture comparison adds structure: the SmallCNN has slightly lower $D_{\mathrm{pred}}$ but \emph{higher} $D_{\mathrm{SKL}}$ than the MLP, which means the CNN's two predictors agree more often on the argmax label but, when they differ in their full softmax distribution, do so more confidently. Function-level disagreement is therefore not absorbed by the convolutional inductive bias---it persists with comparable magnitude across both architectures, and the factor-three parameter distance from Part~II propagates into a measurable functional gap rather than being washed out by parameter symmetries.
+The two matched-seed predictors disagree on $7.4\%$ of MLP test predictions and $6.7\%$ of SmallCNN predictions. The same-optimizer cross-seed baselines on $D_{\mathrm{pred}}$ are $0.0868 \pm 0.0067$ (SGD-vs-SGD) and $0.0822 \pm 0.0042$ (Adam-vs-Adam) on the MLP, and $0.0740 \pm 0.0045$ / $0.0786 \pm 0.0031$ on the SmallCNN. The matched-seed cross-optimizer $D_{\mathrm{pred}}$ is therefore at or slightly \emph{below} the same-optimizer cross-seed baseline; symmetric KL behaves the same way ($0.1749$ for cross-optimizer matched seed on the MLP, versus $0.20$--$0.23$ for same-optimizer cross-seed). Decision-level and softmax-level disagreement at this protocol scale is not driven by the choice of optimizer above the level of seed-induced disagreement. The exception is logit-direction cosine: $C_{\mathrm{logit}} \approx 0.61$--$0.65$ between matched SGD and Adam, versus $0.92$--$0.96$ within either optimizer across seeds. Optimizer choice does therefore shift the pre-softmax logit \emph{direction} substantially, but argmax decisions and full softmax distributions absorb most of that shift. The architecture comparison adds a secondary effect: the SmallCNN has slightly lower $D_{\mathrm{pred}}$ but higher $D_{\mathrm{SKL}}$ than the MLP, indicating that when the convolutional models do disagree they tend to disagree more confidently in distribution.
 
 \FloatBarrier
 \begin{figure}[H]
@@ -299,19 +312,24 @@ Table~\ref{tab:representation} reports $A$ and CKA between matched SGD and Adam 
 \begin{table}[H]
 \centering
 \small
-\begin{tabular}{lcc}
+\begin{tabular}{llcc}
 \toprule
-\textbf{Model} & \textbf{Feature kernel alignment $A$} & \textbf{Linear CKA} \\
+\textbf{Model} & \textbf{Comparison} & \textbf{Feature kernel alignment $A$} & \textbf{Linear CKA} \\
 \midrule
-MLP      & $0.9697 \pm 0.0010$ & $0.8578 \pm 0.0059$ \\
-SmallCNN & $0.9664 \pm 0.0027$ & $0.9147 \pm 0.0113$ \\
+MLP      & SGD-vs-Adam (matched seed) & $0.9697 \pm 0.0010$ & $0.8578 \pm 0.0059$ \\
+MLP      & SGD-vs-SGD (cross seed)    & $0.9698 \pm 0.0008$ & $0.8613 \pm 0.0038$ \\
+MLP      & Adam-vs-Adam (cross seed)  & $0.9714 \pm 0.0008$ & $0.8497 \pm 0.0071$ \\
+\addlinespace
+SmallCNN & SGD-vs-Adam (matched seed) & $0.9664 \pm 0.0027$ & $0.9147 \pm 0.0113$ \\
+SmallCNN & SGD-vs-SGD (cross seed)    & $0.9774 \pm 0.0006$ & $0.9220 \pm 0.0033$ \\
+SmallCNN & Adam-vs-Adam (cross seed)  & $0.9677 \pm 0.0024$ & $0.8920 \pm 0.0107$ \\
 \bottomrule
 \end{tabular}
-\caption{Representation-space alignment between matched SGD and Adam penultimate-layer features on $n=1024$ test samples. Mean $\pm$ std over five seeds.}
+\caption{Representation-space alignment between penultimate-layer features on $n=1024$ test samples. Top sub-block per architecture: matched-seed SGD-vs-Adam (mean $\pm$ std over five seeds). Lower sub-blocks: same-optimizer cross-seed baseline averaged over $C(5,2)=10$ pairs. Cross-optimizer matched-seed values are within or close to the same-optimizer cross-seed range; representation geometry is essentially unaffected by the optimizer choice at this protocol scale.}
 \label{tab:representation}
 \end{table}
 
-Both alignment measures are high in absolute terms. Feature-kernel alignment is $\approx 0.97$ in both architectures, and linear CKA is $0.858$ for the MLP and $0.915$ for the SmallCNN. Despite Adam's parameters being $\sim 3\times$ farther from initialization than SGD's (Section~\ref{sec:path-length}) and the two solutions sitting in distinguishable training-loss basins (Section~\ref{sec:mode-connectivity}), the penultimate-layer feature geometries they induce are highly similar. The SmallCNN shows higher CKA than the MLP, in line with the expectation that the convolutional inductive bias compresses optimizer-induced effects toward the parameter level and away from the representation level: the convolutional structure forces both optimizers into nearly the same feature space, while the MLP allows the choice of optimizer to express itself more in the representation. The combination of high CKA ($\sim 0.86$--$0.91$) with non-trivial decision-level disagreement ($D_{\mathrm{pred}} \sim 0.07$ from Section~\ref{sec:function-space}) means similar features feed into measurably different decision boundaries: the optimizer-induced functional spread is concentrated in the final classifier rather than in the upstream representation.
+Both alignment measures are high in absolute terms. Feature-kernel alignment is $\approx 0.97$ in both architectures, and linear CKA is $0.858$ for the MLP and $0.915$ for the SmallCNN. The same-optimizer cross-seed baselines fall in essentially the same range: CKA is $0.861 \pm 0.004$ (SGD-vs-SGD) and $0.850 \pm 0.007$ (Adam-vs-Adam) on the MLP, and $0.922 \pm 0.003$ / $0.892 \pm 0.011$ on the SmallCNN; $A$ is $\approx 0.97$ in every cell. The matched-seed cross-optimizer values lie within or close to these same-optimizer cross-seed bands, so penultimate-layer representation geometry is essentially indistinguishable between cross-optimizer matched-seed pairs and same-optimizer cross-seed pairs. Optimizer choice does not measurably reshape the representation at this protocol scale: the small architecture-dependent CKA difference (higher on SmallCNN than MLP) tracks an architecture effect rather than an optimizer effect. The combination of high CKA ($\sim 0.86$--$0.92$, comparable to within-optimizer baselines) with non-trivial decision-level disagreement ($D_{\mathrm{pred}} \sim 0.07$, also comparable to baselines) means that similar features feed into distinguishable but not optimizer-specific decision boundaries: the seed-induced functional spread is already large at this scale, and the optimizer adds little to it at the representation level.
 
 \begin{figure}[H]
 \centering
@@ -337,23 +355,23 @@ The Parts~II--IX sequence organizes evidence at three levels of geometry. Table~
 \toprule
 \textbf{Level} & \textbf{Quantities} & \textbf{What it answers} & \textbf{Verdict (this study)} \\
 \midrule
-Parameter geometry & $\|\theta_T-\theta_0\|_2$, $\mathcal{P}_T$, $R_T$, $\lambda_{\max}(H)$, $\operatorname{tr}(H)$, $\bar d_{\mathrm{seed}}$, $\Delta\widehat L(\sigma)$ & Where does the optimizer go, and what is the local curvature? & Adam path length $\sim 3\times$ SGD's in both architectures; directness ratio essentially equal. MLP: Adam $\sim 5$--$6\times$ flatter at matched loss. SmallCNN: ordering reverses---Adam $\sim 10\times$ \emph{sharper} at matched loss. \\
+Parameter geometry & $\|\theta_T-\theta_0\|_2$, $\mathcal{P}_T$, $R_T$, $\lambda_{\max}(H)$, $\operatorname{tr}(H)$, $\bar d_{\mathrm{seed}}$, $\Delta\widehat L(\sigma)$ & Where does the optimizer go, and what is the local curvature? & Adam path length $\sim 3\times$ SGD's in both architectures; directness ratio essentially equal. MLP: Adam $\sim 5$--$6\times$ flatter at matched loss. SmallCNN: ordering may reverse, but this is a single-architecture-pair observation with high $\lambda_{\max}$ estimator variance. \\
 \addlinespace
-Basin geometry & Linear-interpolation loss curve, barrier $B$ & Are the two solutions in the same low-loss region? & Small but reproducibly positive train barrier ($0.072$ MLP, $0.062$ CNN); test barrier $\le 0.02$. Distinct training-loss basins, near-identical population-loss landscape. \\
+Basin geometry & Linear-interpolation loss curve, barrier $B$ & Are the two solutions in the same low-loss region? & Cross-optimizer matched-seed train barrier ($0.072$ MLP, $0.062$ CNN) is $\sim 7\times$--$20\times$ smaller than the same-optimizer cross-seed baseline ($0.49$ MLP, $1.18$--$1.42$ CNN). The matched-seed protocol drives connectivity; cross-optimizer adds a small additional barrier. Test barrier $\le 0.02$ for matched-seed pairs. \\
 \addlinespace
-Function and representation geometry & $D_{\mathrm{pred}}$, $D_{\mathrm{SKL}}$, $C_{\mathrm{logit}}$, $A(K_S,K_A)$, CKA & Do parameter differences correspond to different predictors or representations? & Decisions: $\sim 7\%$ disagreement and $C_{\mathrm{logit}}\approx 0.6$ in both. Representations: CKA $0.86$ MLP, $0.91$ CNN---high but not identical. Optimizer-induced functional spread is concentrated in the classifier head, not the feature space. \\
+Function and representation geometry & $D_{\mathrm{pred}}$, $D_{\mathrm{SKL}}$, $C_{\mathrm{logit}}$, $A(K_S,K_A)$, CKA & Do parameter differences correspond to different predictors or representations? & $D_{\mathrm{pred}}$ ($\sim 7\%$) and CKA ($0.86$--$0.91$) are within the same-optimizer cross-seed baseline range; only $C_{\mathrm{logit}}\approx 0.6$ (vs.\ $0.92$--$0.96$ within-optimizer) shows a sharp matched-seed cross-optimizer signal. Optimizer choice reshapes logit direction but not argmax decisions or representation geometry beyond seed noise at this scale. \\
 \bottomrule
 \end{tabular}
 \caption{Three-level synthesis of the implicit-bias evidence.}
 \label{tab:three-level}
 \end{table}
 
-The data support a sharper version of the message we anticipated:
+The data, with the same-optimizer cross-seed baseline added, support a more conservative version of the message we anticipated:
 \begin{quote}
-\emph{Adam substantially changes parameter-space trajectory and local Euclidean geometry, the change survives loss-matching control, and it crosses a (small) basin boundary on the training surface. But the change \textbf{compresses} as it propagates: by the function level, agreement is much closer ($\sim 93\%$); by the population-loss landscape, the two basins are essentially the same. The MLP/SmallCNN comparison shows that architecture also mediates which curvature regime each optimizer selects, with the convolutional inductive bias even reversing the flatness ordering at matched loss.}
+\emph{Adam substantially changes parameter-space trajectory and local Euclidean geometry on the MLP, and the change survives loss-matching control. As the comparison propagates from parameters to predictions, however, much of what looked like a cross-optimizer effect compresses to within the same-optimizer cross-seed baseline: $D_{\mathrm{pred}}$, $D_{\mathrm{SKL}}$, $A$, and linear CKA on matched-seed cross-optimizer pairs lie within the range observed between two runs of the same optimizer at different seeds. The matched-seed protocol drives basin connectivity an order of magnitude beyond what shared-optimizer cross-seed pairs achieve; the cross-optimizer matched-seed train barrier is small but nonzero, and the only function-level metric that shows a sharp cross-optimizer signal above seed noise is the logit-direction cosine $C_{\mathrm{logit}}$. Architecture mediates which curvature regime each optimizer selects, but the SmallCNN flatness reversal is a single-architecture-pair observation with high $\lambda_{\max}$ estimator variance and should be replicated.}
 \end{quote}
 
-This is the core message of the extended report. Optimizer-induced parameter geometry is real and not merely a final-loss artifact; but generalization is determined by what survives at the function and representation levels, and by that point most of the parameter-space gap has been absorbed.
+This is the core message of the extended report. Optimizer-induced parameter geometry is real, especially on the MLP, and not merely a final-loss artifact; but with a same-optimizer cross-seed baseline in view, the function- and representation-level differences between matched SGD and Adam at this protocol scale are mostly accounted for by seed-induced variability rather than by optimizer-induced bias, with $C_{\mathrm{logit}}$ as the principal exception.
 
 \FloatBarrier
 \begin{figure}[H]
