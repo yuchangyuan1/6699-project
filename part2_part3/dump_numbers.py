@@ -1,13 +1,13 @@
 """
-After the v2 retrain and run_extended_pipeline.py finish, this prints all the
-numerical values that need to be substituted into extension_sections.tex.
+After train_part2.py and run_pipeline.py finish, this prints every numerical
+value referenced in the Part II (geometry) and Part III (generalization) tables
+of the report, formatted as `mean ± std` over the matched-seed runs.
 
-Output is a single text block with one section per [PLACEHOLDER] in the LaTeX
-template. Values are formatted with stds as `mean ± std`.
+Output is a single text block, one block per result file under results_part2/.
 
 Usage:
-    python dump_extension_numbers.py
-    python dump_extension_numbers.py > extension_numbers.txt
+    python dump_numbers.py
+    python dump_numbers.py > numbers.txt
 """
 import os
 import json

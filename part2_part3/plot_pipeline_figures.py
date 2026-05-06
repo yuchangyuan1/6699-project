@@ -1,21 +1,30 @@
 """
-Plot all extended Part II / Part III figures (Plan B additions).
+Plot all pipeline figures used in the report's Part II (geometry) and Part III
+(generalization) sections.
 
 Generates:
-    figures_extended/path_length_curve_{mlp,cnn}.png      (§6.2)
-    figures_extended/step_norm_curve_{mlp,cnn}.png        (§6.3)
-    figures_extended/directness_summary.png               (§6.2 / §7.2)
-    figures_extended/perturbation_curve_{mlp,cnn}.png     (§8)
-    figures_extended/mode_connectivity_{mlp,cnn}.png      (§9)
-    figures_extended/function_space_bars.png              (§10)
-    figures_extended/representation_cka_bars.png          (§11)
-    figures_extended/loss_matched_summary.png             (§7.1)
+
+  Part II evidence (geometry):
+    pipeline_figures/path_length_curve_{mlp,cnn}.png   (Sec.~Trajectory Decomposition)
+    pipeline_figures/step_norm_curve_{mlp,cnn}.png     (Sec.~Trajectory Decomposition)
+    pipeline_figures/perturbation_curve_{mlp,cnn}.png  (Sec.~Perturbation Flatness)
+    pipeline_figures/loss_matched_summary.png          (Sec.~Loss-Matched Control)
+    pipeline_figures/directness_summary.png            (auxiliary)
+
+  Part III evidence (generalization):
+    pipeline_figures/mode_connectivity_{mlp,cnn}.png   (Sec.~Basin Geometry)
+    pipeline_figures/function_space_bars.png           (Sec.~Function-Space Similarity)
+    pipeline_figures/representation_cka_bars.png       (Sec.~Representation Alignment)
+
+The canonical copies used by the LaTeX build live under
+``../report/figures/part2_geometry/`` and ``../report/figures/part3_generalization/``;
+this script writes locally so the pipeline does not depend on the report layout.
 
 Each figure is skipped if the corresponding result JSON is missing, so this
 script can be run incrementally as new evaluations finish.
 
 Usage:
-    python plot_extended.py
+    python plot_pipeline_figures.py
 """
 import os
 import json
@@ -26,7 +35,7 @@ import matplotlib.pyplot as plt
 
 
 RESULTS_DIR = "./results_part2"
-FIG_DIR     = "./figures_extended"
+FIG_DIR     = "./pipeline_figures"
 os.makedirs(FIG_DIR, exist_ok=True)
 
 SEEDS      = [42, 123, 456, 789, 2024]

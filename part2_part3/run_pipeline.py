@@ -1,20 +1,29 @@
 """
-Run the full Plan B evaluation pipeline once train_part2.py has finished.
+Run the full evaluation pipeline once train_part2.py has finished.
 
-Order:
-    1. perturbation_flatness.py
-    2. mode_connectivity.py
-    3. function_space.py
-    4. representation_cka.py
-    5. loss_matched_geometry.py
-    6. plot_extended.py
+The pipeline produces all the evidence files used in Part II (geometry) and
+Part III (generalization) of the report:
+
+    Part II evidence:
+      - perturbation_flatness.py    -> results_part2/perturbation_flatness.json
+      - loss_matched_geometry.py    -> results_part2/loss_matched_geometry.json
+      (path length / step norm are already logged by train_part2.py)
+
+    Part III evidence:
+      - mode_connectivity.py        -> results_part2/mode_connectivity.json
+      - function_space.py           -> results_part2/function_space.json
+      - representation_cka.py       -> results_part2/representation_cka.json
+
+    Plotting (both parts):
+      - plot_pipeline_figures.py
 
 Each step writes its own JSON / figures and is idempotent. Use --skip to skip
 already-completed steps by JSON existence (useful when iterating).
 
 Usage:
-    python run_extended_pipeline.py
-    python run_extended_pipeline.py --skip
+    python run_pipeline.py
+    python run_pipeline.py --skip
+    python run_pipeline.py --only mode_connectivity.py
 """
 import os
 import sys
@@ -29,7 +38,7 @@ STEPS = [
     ("function_space.py",         "results_part2/function_space.json"),
     ("representation_cka.py",     "results_part2/representation_cka.json"),
     ("loss_matched_geometry.py",  "results_part2/loss_matched_geometry.json"),
-    ("plot_extended.py",          None),  # always re-runs (cheap)
+    ("plot_pipeline_figures.py",  None),  # always re-runs (cheap)
 ]
 
 

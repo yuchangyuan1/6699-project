@@ -7,6 +7,10 @@ __pycache__/
 *.egg-info/
 .ipynb_checkpoints/
 
+# Pipeline-side figure scratch directory (canonical figures live in report/figures/)
+part2_part3/pipeline_figures/
+part2_part3/figures_extended/
+
 # =============================================================================
 # OS / editor cruft
 # =============================================================================
