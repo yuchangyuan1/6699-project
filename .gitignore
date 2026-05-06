@@ -20,20 +20,18 @@ Thumbs.db
 # Large training artefacts (reproducible from training scripts)
 # =============================================================================
 # Per-epoch checkpoints (1.1 GB total)
-part2 & part3/results_part2/checkpoints/
+part2_part3/results_part2/checkpoints/
 
 # v1 raw parameter dumps (superseded by state.pt)
 *.npy
 
 # Per-run logs
-part2 & part3/results_part2/*.log
-part2 & part3/results_part2/train_resume.log
-part2 & part3/results_part2/pipeline.log
+part2_part3/results_part2/*.log
 
 # =============================================================================
 # Datasets (public, downloaded by torchvision on first run)
 # =============================================================================
-part2 & part3/data/
+part2_part3/data/
 data/
 
 # =============================================================================
@@ -60,7 +58,3 @@ part1/outputs/
 *.snm
 *.vrb
 
-# =============================================================================
-# Old v1 PDF (root level) — superseded by v2
-# =============================================================================
-6699_final_project_v1 (3).pdf
