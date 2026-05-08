@@ -1,4 +1,4 @@
-"""Fashion-MNIST data loading with deterministic shuffling."""
+"""Fashion-MNIST loaders with deterministic shuffling for matched-seed runs."""
 import numpy as np
 import torch
 from torch.utils.data import DataLoader
@@ -10,25 +10,15 @@ def _worker_init_fn(worker_id: int, seed: int) -> None:
     torch.manual_seed(seed * 100 + worker_id)
 
 
-def get_fashion_mnist_loaders(
-    data_dir: str,
-    batch_size: int,
-    num_workers: int = 0,
-    seed: int = 42,
-) -> tuple:
-    """Return (train_loader, test_loader) for Fashion-MNIST."""
+def get_fashion_mnist_loaders(data_dir: str, batch_size: int,
+                              num_workers: int = 0, seed: int = 42):
     mean, std = (0.2860,), (0.3530,)
     transform = transforms.Compose([
         transforms.ToTensor(),
         transforms.Normalize(mean, std),
     ])
-
-    train_set = datasets.FashionMNIST(
-        root=data_dir, train=True, download=True, transform=transform
-    )
-    test_set = datasets.FashionMNIST(
-        root=data_dir, train=False, download=True, transform=transform
-    )
+    train_set = datasets.FashionMNIST(root=data_dir, train=True,  download=True, transform=transform)
+    test_set  = datasets.FashionMNIST(root=data_dir, train=False, download=True, transform=transform)
 
     g = torch.Generator()
     g.manual_seed(seed)

@@ -1,10 +1,10 @@
-"""MLP and SmallCNN model definitions + optimizer factory."""
+"""MLP and SmallCNN model definitions and an optimizer factory for Part I."""
 import torch
 import torch.nn as nn
 
 
 class MLP(nn.Module):
-    def __init__(self, input_dim: int = 784, hidden_dims=None, num_classes: int = 10, use_bn: bool = True):
+    def __init__(self, input_dim=784, hidden_dims=None, num_classes=10, use_bn=True):
         super().__init__()
         if hidden_dims is None:
             hidden_dims = [256, 128]
@@ -19,13 +19,14 @@ class MLP(nn.Module):
         layers.append(nn.Linear(in_dim, num_classes))
         self.net = nn.Sequential(*layers)
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(self, x):
         return self.net(x.view(x.size(0), -1))
 
 
 class SmallCNN(nn.Module):
-    def __init__(self, num_classes: int = 10, use_bn: bool = True):
+    def __init__(self, num_classes=10, use_bn=True):
         super().__init__()
+
         def conv_block(in_ch, out_ch):
             layers = [nn.Conv2d(in_ch, out_ch, 3, padding=1)]
             if use_bn:
@@ -43,7 +44,7 @@ class SmallCNN(nn.Module):
             nn.Linear(128, num_classes),
         )
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(self, x):
         x = self.features(x)
         return self.classifier(x.view(x.size(0), -1))
 
@@ -64,7 +65,7 @@ def build_optimizer(optimizer_name: str, model: nn.Module, opt_cfg: dict) -> tor
             momentum=opt_cfg.get('momentum', 0.9),
             weight_decay=opt_cfg.get('weight_decay', 0.0),
         )
-    elif name == 'adam':
+    if name == 'adam':
         betas = opt_cfg.get('betas', [0.9, 0.999])
         return torch.optim.Adam(
             model.parameters(),
@@ -73,5 +74,4 @@ def build_optimizer(optimizer_name: str, model: nn.Module, opt_cfg: dict) -> tor
             eps=opt_cfg.get('eps', 1e-8),
             weight_decay=opt_cfg.get('weight_decay', 0.0),
         )
-    else:
-        raise ValueError(f"Unknown optimizer: {optimizer_name}")
+    raise ValueError(f"Unknown optimizer: {optimizer_name}")

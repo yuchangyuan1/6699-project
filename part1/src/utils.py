@@ -1,4 +1,4 @@
-"""Utility functions: seeding, config, I/O."""
+"""Seeding, config loading, and small I/O helpers for Part I."""
 import json
 import random
 from pathlib import Path
@@ -10,7 +10,7 @@ import yaml
 
 
 def set_seed(seed: int) -> None:
-    """Set all random seeds for full reproducibility."""
+    """Seed Python, NumPy, and PyTorch (CPU + CUDA) for reproducibility."""
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)

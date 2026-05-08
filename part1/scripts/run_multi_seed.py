@@ -1,4 +1,4 @@
-"""Run all seeds × optimizers for a given config.
+"""Run all (seed, optimizer) combinations for a Part I config and aggregate.
 
 Usage:
     python scripts/run_multi_seed.py --config configs/experiment_a_mlp.yaml
@@ -30,20 +30,16 @@ def main():
 
     total = len(args.optimizers) * len(seeds)
     done = 0
-    all_summaries = []
-
     for opt_name in args.optimizers:
         for seed in seeds:
             done += 1
             print(f"\n[{done}/{total}] {exp_name} | {opt_name} | seed={seed}")
             output_dir = get_output_dir(base_dir, opt_name, seed)
             summary = run_experiment(cfg, opt_name, seed, output_dir)
-            all_summaries.append(summary)
             print(f"  Final loss: {summary['final_epoch_loss']:.4f}")
 
-    print(f"\nAll runs complete. Building aggregated outputs in {base_dir}/")
+    print(f"\nAll runs complete. Aggregating into {base_dir}/")
     build_aggregated_outputs(cfg, Path(base_dir))
-    print("Done.")
 
 
 if __name__ == '__main__':

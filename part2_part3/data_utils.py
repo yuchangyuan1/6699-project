@@ -1,6 +1,6 @@
 """
-Fashion-MNIST data loading with matched-seed design.
-Each seed produces a deterministic data-loader shuffle shared by SGD and Adam.
+Fashion-MNIST loaders. The seed argument controls the train shuffle generator,
+so SGD and Adam runs sharing a seed see an identical minibatch order.
 """
 import torch
 from torchvision import datasets, transforms
@@ -16,10 +16,6 @@ _transform = transforms.Compose([
 
 
 def get_loaders(seed: int, batch_size: int = 128, data_root: str = "./data"):
-    """
-    Return (train_loader, test_loader) for Fashion-MNIST.
-    The train_loader shuffle is seeded so SGD and Adam see identical minibatch order.
-    """
     train_set = datasets.FashionMNIST(data_root, train=True,  download=True, transform=_transform)
     test_set  = datasets.FashionMNIST(data_root, train=False, download=True, transform=_transform)
 

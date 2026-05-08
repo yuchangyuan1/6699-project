@@ -1,4 +1,4 @@
-"""Run a single (model, optimizer, seed) experiment.
+"""Run a single (model, optimizer, seed) Part I training run.
 
 Usage:
     python scripts/run_single.py --config configs/experiment_a_mlp.yaml --optimizer sgd --seed 42
@@ -9,7 +9,6 @@ import argparse
 import sys
 from pathlib import Path
 
-# Allow running from project root
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from src.train import run_experiment
@@ -18,7 +17,7 @@ from src.utils import get_output_dir, load_config
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', required=True, help='Path to YAML config')
+    parser.add_argument('--config', required=True)
     parser.add_argument('--optimizer', required=True, choices=['sgd', 'adam'])
     parser.add_argument('--seed', type=int, required=True)
     args = parser.parse_args()
@@ -31,7 +30,6 @@ def main():
 
     print(f"Done. Final loss: {summary['final_epoch_loss']:.4f} | "
           f"Time: {summary['training_time_sec']}s | Output: {output_dir}")
-    print("Thresholds:")
     for t, info in summary['thresholds'].items():
         if info:
             print(f"  loss <= {t}: epoch={info['epoch']}, global_step={info['global_step']}")

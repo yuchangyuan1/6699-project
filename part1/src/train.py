@@ -1,4 +1,4 @@
-"""Core training loop and single-run experiment orchestration."""
+"""Core training loop and per-run experiment orchestration for Part I."""
 import json
 import time
 from pathlib import Path
@@ -14,7 +14,7 @@ from src.metrics import (
     records_to_epoch_df, records_to_step_df, thresholds_to_df,
 )
 from src.models import build_model, build_optimizer
-from src.utils import get_device, get_output_dir, reset_parameters, set_seed
+from src.utils import get_device, reset_parameters, set_seed
 
 
 def train_one_run(
@@ -25,10 +25,7 @@ def train_one_run(
     device: torch.device,
     log_grad_norm: bool = False,
 ) -> tuple:
-    """
-    Run training and return (epoch_records, step_records, grad_norm_records).
-    grad_norm_records is empty if log_grad_norm=False.
-    """
+    """Run training; return (epoch_records, step_records, grad_norm_records)."""
     criterion = nn.CrossEntropyLoss()
     model.to(device)
     model.train()
@@ -68,22 +65,13 @@ def train_one_run(
     return epoch_records, step_records, grad_norm_records
 
 
-def run_experiment(
-    cfg: dict,
-    optimizer_name: str,
-    seed: int,
-    output_dir: Path,
-) -> dict:
-    """
-    Full single-run experiment: seed → model → optimizer → train → save.
-    Returns a summary dict.
-    """
+def run_experiment(cfg: dict, optimizer_name: str, seed: int, output_dir: Path) -> dict:
+    """Full single-run experiment: seed -> model -> optimizer -> train -> save."""
     set_seed(seed)
-
     device = get_device()
     model_name = cfg['experiment']['model']
     model = build_model(model_name)
-    reset_parameters(model)  # deterministic init after seeding
+    reset_parameters(model)
 
     opt_cfg = cfg['optimizers'][optimizer_name]
     optimizer = build_optimizer(optimizer_name, model, opt_cfg)
@@ -108,10 +96,9 @@ def run_experiment(
 
     threshold_stats = compute_threshold_stats(step_records, thresholds)
 
-    # --- Save metrics ---
     epoch_df = records_to_epoch_df(epoch_records)
-    step_df = records_to_step_df(step_records)
-    thr_df = thresholds_to_df(threshold_stats, optimizer_name, seed)
+    step_df  = records_to_step_df(step_records)
+    thr_df   = thresholds_to_df(threshold_stats, optimizer_name, seed)
 
     output_dir.mkdir(parents=True, exist_ok=True)
     epoch_df.to_csv(output_dir / 'metrics.csv', index=False)
@@ -123,7 +110,6 @@ def run_experiment(
         gn_df = pd.DataFrame(grad_norm_records, columns=['epoch', 'step', 'global_step', 'grad_norm'])
         gn_df.to_csv(output_dir / 'grad_norm.csv', index=False)
 
-    # --- Summary ---
     summary = {
         'experiment': cfg['experiment']['name'],
         'model': model_name,
@@ -135,11 +121,8 @@ def run_experiment(
         'final_epoch_loss': epoch_records[-1].loss,
         'training_time_sec': round(elapsed, 2),
         'device': str(device),
-        'thresholds': {
-            str(k): v for k, v in threshold_stats.items()
-        },
+        'thresholds': {str(k): v for k, v in threshold_stats.items()},
     }
     with open(output_dir / 'summary.json', 'w') as f:
         json.dump(summary, f, indent=2)
-
     return summary

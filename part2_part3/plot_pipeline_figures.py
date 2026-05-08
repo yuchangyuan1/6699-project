@@ -1,30 +1,15 @@
 """
-Plot all pipeline figures used in the report's Part II (geometry) and Part III
-(generalization) sections.
+Generate the remaining Part II/III figures referenced in the report:
 
-Generates:
+  Part II:
+    path_length_curve_{mlp,cnn}.png   - cumulative path length vs distance
+    step_norm_curve_{mlp,cnn}.png     - per-step update norm profile
+    perturbation_curve_{mlp,cnn}.png  - perturbation flatness curve
+  Part III:
+    mode_connectivity_{mlp,cnn}.png   - linear interpolation loss curve
+    function_space_bars.png           - D_pred / D_SKL / C_logit bars
 
-  Part II evidence (geometry):
-    pipeline_figures/path_length_curve_{mlp,cnn}.png   (Sec.~Trajectory Decomposition)
-    pipeline_figures/step_norm_curve_{mlp,cnn}.png     (Sec.~Trajectory Decomposition)
-    pipeline_figures/perturbation_curve_{mlp,cnn}.png  (Sec.~Perturbation Flatness)
-    pipeline_figures/loss_matched_summary.png          (Sec.~Loss-Matched Control)
-    pipeline_figures/directness_summary.png            (auxiliary)
-
-  Part III evidence (generalization):
-    pipeline_figures/mode_connectivity_{mlp,cnn}.png   (Sec.~Basin Geometry)
-    pipeline_figures/function_space_bars.png           (Sec.~Function-Space Similarity)
-    pipeline_figures/representation_cka_bars.png       (Sec.~Representation Alignment)
-
-The canonical copies used by the LaTeX build live under
-``../report/figures/part2_geometry/`` and ``../report/figures/part3_generalization/``;
-this script writes locally so the pipeline does not depend on the report layout.
-
-Each figure is skipped if the corresponding result JSON is missing, so this
-script can be run incrementally as new evaluations finish.
-
-Usage:
-    python plot_pipeline_figures.py
+Each figure is skipped if the corresponding result JSON is missing.
 """
 import os
 import json
@@ -35,8 +20,10 @@ import matplotlib.pyplot as plt
 
 
 RESULTS_DIR = "./results_part2"
-FIG_DIR     = "./pipeline_figures"
-os.makedirs(FIG_DIR, exist_ok=True)
+PART2_DIR   = "../report/figures/part2_geometry"
+PART3_DIR   = "../report/figures/part3_generalization"
+os.makedirs(PART2_DIR, exist_ok=True)
+os.makedirs(PART3_DIR, exist_ok=True)
 
 SEEDS      = [42, 123, 456, 789, 2024]
 ARCHS      = ["MLP", "SmallCNN"]
@@ -82,16 +69,14 @@ def _line_with_band(ax, x, M, color, label):
     ax.fill_between(x, mu - sd, mu + sd, color=color, alpha=0.2)
 
 
-# ── §6.2 path length ────────────────────────────────────────────────────────
-
 def plot_path_length():
     for arch in ARCHS:
-        S = _stack(arch, "SGD",  "path_length_per_epoch")
-        A = _stack(arch, "Adam", "path_length_per_epoch")
+        S   = _stack(arch, "SGD",  "path_length_per_epoch")
+        A   = _stack(arch, "Adam", "path_length_per_epoch")
         D_S = _stack(arch, "SGD",  "param_distances")
         D_A = _stack(arch, "Adam", "param_distances")
         if any(x is None for x in (S, A, D_S, D_A)):
-            print(f"  skip path_length ({arch}): missing v2 fields")
+            print(f"  skip path_length ({arch}): missing fields")
             continue
         ep = np.arange(1, S.shape[1] + 1)
 
@@ -109,7 +94,6 @@ def plot_path_length():
         ax.set_title(f"{arch}: cumulative path length vs distance")
         ax.legend(loc="upper left", frameon=False)
 
-        # Directness ratio over epochs
         R_S = D_S / np.maximum(S, 1e-12)
         R_A = D_A / np.maximum(A, 1e-12)
         ax = axes[1]
@@ -121,19 +105,17 @@ def plot_path_length():
         ax.legend(loc="upper right", frameon=False)
         plt.tight_layout()
         suffix = "mlp" if arch == "MLP" else "cnn"
-        out = os.path.join(FIG_DIR, f"path_length_curve_{suffix}.png")
+        out = os.path.join(PART2_DIR, f"path_length_curve_{suffix}.png")
         plt.savefig(out); plt.close(fig)
         print(f"  saved {out}")
 
-
-# ── §6.3 step norm profile ──────────────────────────────────────────────────
 
 def plot_step_norm():
     for arch in ARCHS:
         S = _stack(arch, "SGD",  "step_norm_per_epoch")
         A = _stack(arch, "Adam", "step_norm_per_epoch")
         if S is None or A is None:
-            print(f"  skip step_norm ({arch}): missing v2 fields")
+            print(f"  skip step_norm ({arch}): missing fields")
             continue
         ep = np.arange(1, S.shape[1] + 1)
         fig, ax = plt.subplots(figsize=(5.5, 3.6))
@@ -144,19 +126,18 @@ def plot_step_norm():
         ax.legend(loc="upper right", frameon=False)
         plt.tight_layout()
         suffix = "mlp" if arch == "MLP" else "cnn"
-        out = os.path.join(FIG_DIR, f"step_norm_curve_{suffix}.png")
+        out = os.path.join(PART2_DIR, f"step_norm_curve_{suffix}.png")
         plt.savefig(out); plt.close(fig)
         print(f"  saved {out}")
 
-
-# ── §8 perturbation flatness ────────────────────────────────────────────────
 
 def plot_perturbation():
     path = os.path.join(RESULTS_DIR, "perturbation_flatness.json")
     if not os.path.exists(path):
         print("  skip perturbation: result file missing")
         return
-    with open(path) as f: d = json.load(f)
+    with open(path) as f:
+        d = json.load(f)
     sigmas = d["config"]["sigmas"]
 
     for arch in ARCHS:
@@ -166,9 +147,8 @@ def plot_perturbation():
             if key not in d.get("aggregated", {}):
                 continue
             entry = d["aggregated"][key]
-            mu = [entry["sigmas"][f"{s:.0e}"]["mean"] for s in sigmas]
-            sd = [entry["sigmas"][f"{s:.0e}"]["std"]  for s in sigmas]
-            mu = np.array(mu); sd = np.array(sd)
+            mu = np.array([entry["sigmas"][f"{s:.0e}"]["mean"] for s in sigmas])
+            sd = np.array([entry["sigmas"][f"{s:.0e}"]["std"]  for s in sigmas])
             ax.errorbar(sigmas, mu, yerr=sd, fmt="-o",
                         color=color, lw=2.0, capsize=3, label=opt)
         ax.set_xscale("log"); ax.set_yscale("symlog", linthresh=1e-3)
@@ -178,24 +158,24 @@ def plot_perturbation():
         ax.legend(loc="upper left", frameon=False)
         plt.tight_layout()
         suffix = "mlp" if arch == "MLP" else "cnn"
-        out = os.path.join(FIG_DIR, f"perturbation_curve_{suffix}.png")
+        out = os.path.join(PART2_DIR, f"perturbation_curve_{suffix}.png")
         plt.savefig(out); plt.close(fig)
         print(f"  saved {out}")
 
-
-# ── §9 mode connectivity ────────────────────────────────────────────────────
 
 def plot_mode_connectivity():
     path = os.path.join(RESULTS_DIR, "mode_connectivity.json")
     if not os.path.exists(path):
         print("  skip mode connectivity: result file missing")
         return
-    with open(path) as f: d = json.load(f)
+    with open(path) as f:
+        d = json.load(f)
     lambdas = d["config"]["lambdas"]
 
     for arch in ARCHS:
         runs = [r for r in d["runs"] if r["arch"] == arch]
-        if not runs: continue
+        if not runs:
+            continue
         fig, axes = plt.subplots(1, 2, figsize=(10, 3.6))
         for ax, key, ylabel in [
             (axes[0], "train_loss", "Train loss"),
@@ -210,19 +190,18 @@ def plot_mode_connectivity():
             ax.set_title(f"{arch}: linear interpolation {ylabel.lower()}")
         plt.tight_layout()
         suffix = "mlp" if arch == "MLP" else "cnn"
-        out = os.path.join(FIG_DIR, f"mode_connectivity_{suffix}.png")
+        out = os.path.join(PART3_DIR, f"mode_connectivity_{suffix}.png")
         plt.savefig(out); plt.close(fig)
         print(f"  saved {out}")
 
-
-# ── §10 function-space bars ─────────────────────────────────────────────────
 
 def plot_function_space():
     path = os.path.join(RESULTS_DIR, "function_space.json")
     if not os.path.exists(path):
         print("  skip function-space: result file missing")
         return
-    with open(path) as f: d = json.load(f)
+    with open(path) as f:
+        d = json.load(f)
 
     metrics = [("D_pred", "Prediction disagreement"),
                ("D_SKL",  "Symmetric KL"),
@@ -232,7 +211,8 @@ def plot_function_space():
         labels, means, stds = [], [], []
         for arch in ARCHS:
             agg = d["aggregated"].get(arch)
-            if agg is None: continue
+            if agg is None:
+                continue
             labels.append(arch)
             means.append(agg[f"{key}_mean"])
             stds.append(agg[f"{key}_std"])
@@ -242,90 +222,19 @@ def plot_function_space():
         ax.set_ylabel(label)
         ax.set_title(label)
     plt.tight_layout()
-    out = os.path.join(FIG_DIR, "function_space_bars.png")
-    plt.savefig(out); plt.close(fig)
-    print(f"  saved {out}")
-
-
-# ── §11 representation CKA bars ─────────────────────────────────────────────
-
-def plot_representation_cka():
-    path = os.path.join(RESULTS_DIR, "representation_cka.json")
-    if not os.path.exists(path):
-        print("  skip representation CKA: result file missing")
-        return
-    with open(path) as f: d = json.load(f)
-
-    fig, axes = plt.subplots(1, 2, figsize=(9, 3.6))
-    for ax, key, label in [(axes[0], "A",   "Feature kernel alignment"),
-                           (axes[1], "CKA", "Linear CKA")]:
-        labels, means, stds = [], [], []
-        for arch in ARCHS:
-            agg = d["aggregated"].get(arch)
-            if agg is None: continue
-            labels.append(arch)
-            means.append(agg[f"{key}_mean"])
-            stds.append(agg[f"{key}_std"])
-        x = np.arange(len(labels))
-        ax.bar(x, means, yerr=stds, color=["#888", "#444"], capsize=4)
-        ax.set_xticks(x); ax.set_xticklabels(labels)
-        ax.set_ylabel(label); ax.set_title(label)
-        ax.set_ylim(0, 1.05)
-    plt.tight_layout()
-    out = os.path.join(FIG_DIR, "representation_cka_bars.png")
-    plt.savefig(out); plt.close(fig)
-    print(f"  saved {out}")
-
-
-# ── §7.1 loss-matched summary ───────────────────────────────────────────────
-
-def plot_loss_matched():
-    path = os.path.join(RESULTS_DIR, "loss_matched_geometry.json")
-    if not os.path.exists(path):
-        print("  skip loss-matched: result file missing")
-        return
-    with open(path) as f: d = json.load(f)
-    if not d.get("aggregated"): return
-
-    metrics = [("sharp", "$\\lambda_{\\max}(H)$"),
-               ("trace", "$\\operatorname{tr}(H)$"),
-               ("dist",  "$\\|\\theta-\\theta_0\\|_2$")]
-    fig, axes = plt.subplots(1, 3, figsize=(13, 3.6))
-    for ax, (key, label) in zip(axes, metrics):
-        x = np.arange(len(ARCHS)); width = 0.35
-        s_means, s_stds, a_means, a_stds = [], [], [], []
-        for arch in ARCHS:
-            agg = d["aggregated"].get(arch)
-            if agg is None:
-                s_means.append(0); s_stds.append(0)
-                a_means.append(0); a_stds.append(0); continue
-            s_means.append(agg[f"{key}_S_mean"])
-            s_stds.append(agg[f"{key}_S_std"])
-            a_means.append(agg[f"{key}_A_mean"])
-            a_stds.append(agg[f"{key}_A_std"])
-        ax.bar(x - width/2, s_means, width, yerr=s_stds,
-               color=SGD_COLOR, capsize=3, label="SGD @ matched epoch t*")
-        ax.bar(x + width/2, a_means, width, yerr=a_stds,
-               color=ADAM_COLOR, capsize=3, label="Adam @ final epoch")
-        ax.set_xticks(x); ax.set_xticklabels(ARCHS)
-        ax.set_ylabel(label); ax.set_title(label)
-        ax.legend(frameon=False)
-    plt.tight_layout()
-    out = os.path.join(FIG_DIR, "loss_matched_summary.png")
+    out = os.path.join(PART3_DIR, "function_space_bars.png")
     plt.savefig(out); plt.close(fig)
     print(f"  saved {out}")
 
 
 def main():
-    print("Plotting extended figures…")
+    print("Plotting pipeline figures...")
     plot_path_length()
     plot_step_norm()
     plot_perturbation()
     plot_mode_connectivity()
     plot_function_space()
-    plot_representation_cka()
-    plot_loss_matched()
-    print(f"\nAll figures in: {FIG_DIR}/")
+    print(f"\nFigures saved under {PART2_DIR}/ and {PART3_DIR}/")
 
 
 if __name__ == "__main__":

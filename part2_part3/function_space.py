@@ -1,27 +1,17 @@
 """
-§10 Function-space similarity.
+Function-space similarity between matched-seed SGD and Adam models on test:
 
-For each matched seed, evaluate the SGD and Adam models on the test set and
-compare them as functions:
+    D_pred  - prediction-disagreement rate (decision level)
+    D_SKL   - mean symmetric KL of softmax distributions
+    C_logit - mean cosine similarity of pre-softmax logits
 
-    D_pred  = (1/N) Σ 1[ argmax p_S(x) ≠ argmax p_A(x) ]
-    D_SKL   = (1/2N) Σ ( KL(p_S || p_A) + KL(p_A || p_S) )
-    C_logit = (1/N) Σ <z_S(x), z_A(x)> / (‖z_S(x)‖ · ‖z_A(x)‖)
-
-These metrics target three different aspects of function similarity:
-    * D_pred  — discrete prediction agreement (decision-level)
-    * D_SKL   — full softmax distribution divergence
-    * C_logit — pre-softmax direction similarity (scale-invariant)
-
-Run:
-    python function_space.py
-Output:
-    results_part2/function_space.json
+Output: results_part2/function_space.json
 """
 import os
 import json
 import time
 import argparse
+
 import numpy as np
 import torch
 import torch.nn as nn
@@ -39,43 +29,34 @@ EPS = 1e-12
 
 def parse_args():
     p = argparse.ArgumentParser()
-    p.add_argument("--out", default=os.path.join(RESULTS_DIR,
-                                                 "function_space.json"))
+    p.add_argument("--out", default=os.path.join(RESULTS_DIR, "function_space.json"))
     return p.parse_args()
 
 
 @torch.no_grad()
-def collect_logits(model: nn.Module, loader, device):
+def collect_logits(model, loader, device):
     model.eval()
-    logits_all, labels_all = [], []
+    logits, labels = [], []
     for xb, yb in loader:
-        xb, yb = xb.to(device), yb.to(device)
-        logits_all.append(model(xb).cpu())
-        labels_all.append(yb.cpu())
-    return torch.cat(logits_all), torch.cat(labels_all)
+        logits.append(model(xb.to(device)).cpu())
+        labels.append(yb)
+    return torch.cat(logits), torch.cat(labels)
 
 
-def function_space_metrics(z_s: torch.Tensor, z_a: torch.Tensor):
-    """All three function-space comparisons. Inputs are (N, C) logits."""
-    # Predictions
-    pred_s = z_s.argmax(1)
-    pred_a = z_a.argmax(1)
+def function_space_metrics(z_s, z_a):
+    """Three function-space comparisons given (N, C) logits z_s, z_a."""
+    pred_s = z_s.argmax(1); pred_a = z_a.argmax(1)
     d_pred = (pred_s != pred_a).float().mean().item()
 
-    # Symmetric KL via softmax
-    p_s = F.softmax(z_s, dim=1)
-    p_a = F.softmax(z_a, dim=1)
-    log_s = F.log_softmax(z_s, dim=1)
-    log_a = F.log_softmax(z_a, dim=1)
+    p_s = F.softmax(z_s, dim=1);   p_a = F.softmax(z_a, dim=1)
+    log_s = F.log_softmax(z_s, dim=1); log_a = F.log_softmax(z_a, dim=1)
     kl_sa = (p_s * (log_s - log_a)).sum(1)
     kl_as = (p_a * (log_a - log_s)).sum(1)
     d_skl = 0.5 * (kl_sa + kl_as).mean().item()
 
-    # Logit cosine similarity
     z_s_n = z_s.norm(dim=1, keepdim=True).clamp_min(EPS)
     z_a_n = z_a.norm(dim=1, keepdim=True).clamp_min(EPS)
     c_logit = ((z_s * z_a).sum(1) / (z_s_n.squeeze(1) * z_a_n.squeeze(1))).mean().item()
-
     return {"D_pred": d_pred, "D_SKL": d_skl, "C_logit": c_logit}
 
 
@@ -99,7 +80,7 @@ def main():
             _, test_loader = get_loaders(seed)
             z_s, y_s = collect_logits(m_sgd, test_loader, device)
             z_a, y_a = collect_logits(m_ada, test_loader, device)
-            assert torch.equal(y_s, y_a), "test loaders must produce same order"
+            assert torch.equal(y_s, y_a), "test loaders must produce identical order"
 
             metrics = function_space_metrics(z_s, z_a)
             metrics.update({"arch": arch, "seed": seed})
@@ -109,7 +90,6 @@ def main():
                   f"D_SKL={metrics['D_SKL']:.4f}  "
                   f"C_logit={metrics['C_logit']:.4f}", flush=True)
 
-    # Aggregate per architecture
     agg = {}
     for r in out["runs"]:
         d = agg.setdefault(r["arch"], {"D_pred": [], "D_SKL": [], "C_logit": []})
